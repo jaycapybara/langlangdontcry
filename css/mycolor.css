@@ -1,0 +1,861 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&family=Zen+Maru+Gothic&display=swap');
+
+/* font-family: "Zen Maru Gothic", serif; */
+/* 
+body {
+    font-family: "Zen Maru Gothic", serif;
+} */
+
+
+:root {
+    --mycolor01: #E1DCD9;
+    --mycolor02: #8F8681;
+    --mycolor03: #A67F78;
+    --mycolor04: #32435f;
+
+    --mycolor05: #FFD954;
+    --mycolor06: #E4B660;
+    --mycolor07: #F2AB39;
+    --mycolor08: #69491A;
+
+    --mycolor09: #D5D2C1;
+    --mycolor10: #BD8E62;
+    --mycolor11: #A46843;
+    --mycolor12: #370D00;
+
+    --mycolor13: #FFD0D6;
+    --mycolor14: #B7DDE0;
+    --mycolor15: #FEE19F;
+    --mycolor16: #735B69;
+
+    --mycolor17: #b6b3b2;
+    --mycolor18: #faf9f9;
+
+    --mycolor19: #9CB3C5;
+    --mycolor20: #586C50;
+    --mycolor21: #D5683D;
+    --mycolor22: #865B2E;
+
+    --mycolor23: #9EA2AB;
+    --mycolor24: #6D8DB6;
+    --mycolor25: #FFCC71;
+    --mycolor26: #A16F3A;
+
+    --mycolor27: #2d6826de;
+
+    --mycolor28: #FBD1A7;
+    --mycolor29: #607178;
+    --mycolor30: #353C42;
+    --mycolor31: #01273C;
+
+    --mycolor32: #596FB5;
+    --mycolor33: #FE7139;
+    --mycolor34: #928A99;
+    --mycolor35: #695D86;
+
+    --mycolor36: #FEC700;
+    --mycolor37: #1E9AD0;
+    --mycolor38: #7E2E0B;
+    --mycolor39: #9A6231;
+
+    --mycolor40: #E6B6C2;
+    --mycolor41: #D4587A;
+    --mycolor42: #DC364C;
+    --mycolor43: #778633;
+    --mycolor44: rgba(240, 239, 236, 0.4);
+    --mycolor45: rgba(236, 229, 217, 1);
+    --mycolor46: rgb(228, 215, 194, 1);
+
+
+
+}
+
+/* 背景色 */
+
+.bg-001 {
+    background-color: var(--mycolor02);
+    color: var(--mycolor04);
+}
+
+
+.bg-002 {
+    background-color: var(--mycolor07);
+    color: var(--mycolor08);
+}
+
+.bg-003 {
+    background-color: var(--mycolor14);
+    color: var(--mycolor02);
+}
+
+.bg-004 {
+    background-color: var(--mycolor08);
+    color: var(--mycolor01);
+}
+
+.bg-004:hover {
+    background-color: var(--mycolor09);
+    color: var(--mycolor12);
+}
+
+
+.bg-005 {
+    background-color: var(--mycolor16);
+    color: var(--mycolor09);
+}
+
+.bg-006 {
+    background-color: var(--mycolor09);
+    color: var(--mycolor12);
+}
+
+.bg-006:hover {
+    background-color: var(--mycolor02);
+    color: var(--mycolor04);
+}
+
+.bg-007 {
+    background-color: var(--mycolor03);
+    color: var(--mycolor12);
+}
+
+.bg-008 {
+    background-color: var(--mycolor10);
+    color: var(--mycolor12);
+}
+
+.bg-008:hover {
+    background-color: var(--mycolor04);
+    color: var(--mycolor01);
+}
+
+
+.bg-009 {
+    background-color: var(--mycolor04);
+    color: var(--mycolor01);
+}
+
+.bg-010 {
+    background-color: var(--mycolor19);
+    color: var(--mycolor18);
+}
+
+.bg-011 {
+    background-color: var(--mycolor17);
+    color: var(--mycolor20);
+}
+
+/* button */
+.bt-001 {
+    background-color: var(--mycolor02);
+    color: var(--mycolor04);
+}
+
+.bt-001:hover {
+    background-color: var(--mycolor17);
+    color: var(--mycolor31);
+}
+
+.bt-002 {
+    background-color: var(--mycolor07);
+    color: var(--mycolor08);
+}
+
+.bt-002:hover {
+    background-color: var(--mycolor19);
+    color: var(--mycolor18);
+}
+
+.bt-003 {
+    background-color: var(--mycolor14);
+    color: var(--mycolor02);
+}
+
+.bt-003:hover {
+    background-color: var(--mycolor04);
+    color: var(--mycolor01);
+}
+
+
+
+
+
+
+
+/* 文字 */
+.text-001 {
+    color: var(--mycolor01);
+}
+
+.text-002 {
+    color: var(--mycolor02);
+}
+
+.text-003 {
+    color: var(--mycolor03);
+}
+
+.text-004 {
+    color: var(--mycolor04);
+}
+
+.text-005 {
+    color: var(--mycolor05);
+}
+
+.text-006 {
+    color: var(--mycolor06);
+}
+
+.text-007 {
+    color: var(--mycolor07);
+}
+
+.text-008 {
+    color: var(--mycolor08);
+}
+
+.text-009 {
+    color: var(--mycolor09);
+}
+
+.text-010 {
+    color: var(--mycolor10);
+}
+
+.text-011 {
+    color: var(--mycolor11);
+}
+
+.text-013 {
+    color: var(--mycolor13);
+}
+
+.text-012 {
+    color: var(--mycolor12);
+}
+
+.text-014 {
+    color: var(--mycolor14);
+}
+
+.text-015 {
+    color: var(--mycolor15);
+}
+
+.text-017 {
+    color: var(--mycolor17);
+}
+
+.text-016 {
+    color: var(--mycolor16);
+}
+
+.text-018 {
+    color: var(--mycolor18);
+}
+
+.text-019 {
+    color: var(--mycolor19);
+}
+
+/* 文字粗細 */
+.fw-100 {
+    font-weight: 100;
+}
+
+.fw-200 {
+    font-weight: 200;
+}
+
+.fw-300 {
+    font-weight: 300;
+}
+
+.fw-400 {
+    font-weight: 400;
+}
+
+.fw-500 {
+    font-weight: 500;
+}
+
+.fw-600 {
+    font-weight: 600;
+}
+
+.fw-700 {
+    font-weight: 700;
+}
+
+.fw-800 {
+    font-weight: 800;
+}
+
+.fw-900 {
+    font-weight: 900;
+}
+
+/* 遮罩 */
+.myroller {
+    position: relative;
+    overflow: hidden;
+}
+
+.myroller .roller {
+    position: absolute;
+    background-color: rgba(49, 47, 47, 0.3);
+    width: 100%;
+    height: 100%;
+    top: -100%;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.myroller .roller a {
+    display: block;
+    width: 130px;
+    height: 40px;
+    background-color: var(--mycolor01);
+    text-decoration: none;
+    text-align: center;
+    line-height: 20px;
+    color: var(--mycolor12);
+    font-size: 18px;
+    border-radius: 10px;
+
+}
+
+.myroller:hover .roller {
+    top: 0;
+    transition: top 2s;
+}
+
+/* 遮罩01 */
+.myroller1 {
+    position: relative;
+    overflow: hidden;
+}
+
+.myroller1 .roller1 {
+    position: absolute;
+    background-color: rgba(49, 47, 47, 0.3);
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    left: -100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.myroller1 .roller1 a {
+    display: block;
+    width: 130px;
+    height: 40px;
+    background-color: var(--mycolor01);
+    text-decoration: none;
+    text-align: center;
+    line-height: 20px;
+    color: var(--mycolor12);
+    font-size: 18px;
+    border-radius: 10px;
+
+}
+
+.myroller1:hover .roller1 {
+    left: 0;
+    transition: left 2s;
+}
+
+/* 遮罩02 */
+
+.myroller2 {
+    position: relative;
+    overflow: hidden;
+}
+
+.myroller2 .roller2 {
+    position: absolute;
+    background-color: rgba(49, 47, 47, 0.3);
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    left: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.myroller2 .roller2 a {
+    display: block;
+    width: 130px;
+    height: 40px;
+    background-color: var(--mycolor01);
+    text-decoration: none;
+    text-align: center;
+    line-height: 20px;
+    color: var(--mycolor12);
+    font-size: 18px;
+    border-radius: 10px;
+
+}
+
+.myroller2:hover .roller2 {
+    left: 0;
+    transition: left 2s;
+}
+
+/* 遮罩03 */
+.myroller3 {
+    position: relative;
+    overflow: hidden;
+}
+
+.myroller3 .roller3 {
+    position: absolute;
+    background-color: rgba(49, 47, 47, 0.3);
+    width: 100%;
+    height: 100%;
+    top: 100%;
+    left: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.myroller3 .roller3 a {
+    display: block;
+    width: 130px;
+    height: 40px;
+    background-color: var(--mycolor01);
+    text-decoration: none;
+    text-align: center;
+    line-height: 20px;
+    color: var(--mycolor12);
+    font-size: 18px;
+    border-radius: 10px;
+
+}
+
+.myroller3:hover .roller3 {
+    top: -0;
+    transition: top 2s;
+}
+
+/* 遮罩04 */
+.myroller4 {
+    position: relative;
+    overflow: hidden;
+}
+
+.myroller4 .roller4 {
+    position: absolute;
+    background-color: var(--mycolor10);
+    width: 100%;
+    height: 100%;
+    top: 100%;
+    left: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: larger;
+}
+
+.myroller4 .roller4 a {
+    display: block;
+    width: 130px;
+    height: 40px;
+    background-color: var(--mycolor01);
+    text-decoration: none;
+    text-align: center;
+    line-height: 20px;
+    color: var(--mycolor12);
+    font-size: 18px;
+    border-radius: 10px;
+
+}
+
+.myroller4:hover .roller4 {
+    top: -0;
+    transition: top 2s;
+
+    /* background-color: var(--mycolor04); */
+}
+
+/* 5 */
+
+.myroller5 {
+    position: relative
+}
+
+.myroller5::before {
+    content: "";
+
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    text-align: center;
+    background-image: url(/image/icon/bear.png);
+    background-color: var(--mycolor10);
+    margin-top: 30px;
+    border-radius: 50%;
+    background-position: center center;
+    background-size: cover;
+
+    left: 50%;
+    transform: translateX(-50%);
+
+
+}
+
+.myroller5:hover::before {
+    background-image: url(/image/menu01.png);
+
+    margin-top: 0;
+    top: 0;
+    transition-duration: 2s;
+    overflow: hidden;
+
+
+
+}
+
+
+
+
+
+
+/* 表格
+1.table.table-rwd
+2. <td data-th="xx">
+3.<span class="table-th">xx</span> */
+
+@media screen and (max-width: 768px) {
+    .table-rwd thead {
+        display: none;
+    }
+
+    .table-rwd tbody tr {
+        display: block;
+        border: 5px solid var(--mycolor02);
+        margin-top: 15px;
+    }
+
+    .table-rwd tbody tr td {
+        display: block;
+        overflow: hidden;
+    }
+
+    .table-rwd tbody tr td::before {
+        content: attr(data-th) " : ";
+        font-weight: 900;
+        color: var(--mycolor08);
+        font-size: 22px;
+        display: block;
+        float: left;
+        width: 30%;
+        text-align: right;
+        padding-right: 20px;
+    }
+
+    .table-rwd tbody tr td span.table-th {
+        display: block;
+        float: left;
+        width: 70%;
+
+
+    }
+}
+
+/* 背景圖 */
+.bg-cover {
+    background-position: center center;
+    background-size: cover;
+}
+
+/* 時間軸 選單鈕*/
+
+.timeline-section-pointer {
+    position: relative;
+}
+
+.timeline-section-pointer::before {
+    position: absolute;
+    content: "";
+    width: 50px;
+    height: 50px;
+    background-color: var(--mycolor16);
+    left: 10%;
+    transform: translateX(-20%);
+    border-radius: 50%;
+    border: 5px solid var(--mycolor18);
+    top: 50px;
+}
+
+.timeline-section-pointer:hover::before {
+    width: 60px;
+    height: 60px;
+}
+
+/* 時間軸選單鈕1 */
+
+.timeline-section-pointer1 {
+    position: relative;
+}
+
+.timeline-section-pointer1::before {
+    position: absolute;
+    content: "";
+    width: 50px;
+    height: 50px;
+    background-color: var(--mycolor03);
+    left: 10%;
+    transform: translateX(-20%);
+    border-radius: 50%;
+    border: 5px solid var(--mycolor18);
+    top: 50px;
+}
+
+.timeline-section-pointer1:hover::before {
+    width: 60px;
+    height: 60px;
+}
+
+/* 時間軸選單鈕2 */
+
+.timeline-section-pointer2 {
+    position: relative;
+}
+
+.timeline-section-pointer2::before {
+    position: absolute;
+    content: "";
+    width: 50px;
+    height: 50px;
+    background-color: var(--mycolor07);
+    left: 10%;
+    transform: translateX(-20%);
+    border-radius: 50%;
+    border: 5px solid var(--mycolor18);
+    top: 50px;
+}
+
+.timeline-section-pointer2:hover::before {
+    width: 60px;
+    height: 60px;
+}
+
+/* <div class="fashion-image"></div>   .fashion-image */
+
+.fashion-image {
+    margin: 0 auto;
+    width: 450px;
+    height: 281px;
+    transition: background-image 1s ease-in-out;
+    background-image: url("/image/cat01.jpg");
+}
+
+.fashion-image:hover {
+    background-image: url("/image/cat02.jpg");
+
+}
+
+/* <div class="fashion-image">
+        <img class="bottom" src="https://i.imgur.com/LJaCii8.png" />
+        <img class="top" src="https://i.imgur.com/EzSlpOr.png" />
+    </div>     .fashion-image01 */
+
+.fashion-image01 {
+    position: relative;
+    height: 281px;
+    width: 450px;
+    margin: 0 auto;
+}
+
+.fashion-image01 img {
+    position: absolute;
+    left: 0;
+    -webkit-transition: opacity 1s ease-in-out;
+    -moz-transition: opacity 1s ease-in-out;
+    -o-transition: opacity 1s ease-in-out;
+    transition: opacity 1s ease-in-out;
+
+
+}
+
+.fashion-image01 img.top:hover {
+    opacity: 0;
+}
+
+.myroller6 {
+    position: relative
+}
+
+.myroller6::before {
+    content: "";
+
+    position: absolute;
+    width: 80px;
+    height: 110px;
+    text-align: center;
+    background-image: url(images/icon/b-icon-2.png);
+
+    margin-top: 30px;
+    background-position: center center;
+    background-size: cover;
+
+
+
+
+}
+
+.myroller6:hover::before {
+    background-image: url(images/icon/b-icon-1.png);
+
+    margin-top: 0;
+    top: 0;
+    transition-duration: 2s;
+    overflow: hidden;
+
+
+
+}
+
+.myroller9 {
+    position: relative
+}
+
+.myroller9::before {
+    content: "";
+
+    position: absolute;
+    width: 80px;
+    height: 110px;
+    text-align: center;
+    background-image: url(images/icon/p-icon-2.png);
+
+    margin-top: 30px;
+    background-position: center center;
+    background-size: cover;
+
+
+
+
+}
+
+.myroller9:hover::before {
+    background-image: url(images/icon/p-icon-1.png);
+
+    margin-top: 0;
+    top: 0;
+    transition-duration: 2s;
+    overflow: hidden;
+
+
+
+}
+
+.myroller10 {
+    position: relative
+}
+
+.myroller10::before {
+    content: "";
+
+    position: absolute;
+    width: 80px;
+    height: 110px;
+    text-align: center;
+    background-image: url(images/icon/pk-icon-2.png);
+
+    margin-top: 30px;
+    background-position: center center;
+    background-size: cover;
+
+
+
+
+}
+
+.myroller10:hover::before {
+    background-image: url(images/icon/pk-icon-1.png);
+
+    margin-top: 0;
+    top: 0;
+    transition-duration: 2s;
+    overflow: hidden;
+
+
+
+}
+
+.myroller7 {
+    position: relative
+}
+
+.myroller7::before {
+    content: "";
+
+    position: absolute;
+    width: 80px;
+    height: 110px;
+    text-align: center;
+    background-image: url(images/icon/c-icon-2.png);
+
+    margin-top: 30px;
+    background-position: center center;
+    background-size: cover;
+
+
+
+
+}
+
+.myroller7:hover::before {
+    background-image: url(images/icon/c-icon-1.png);
+
+    margin-top: 0;
+    top: 0;
+    transition-duration: 2s;
+    overflow: hidden;
+
+
+
+}
+
+.myroller8 {
+    position: relative
+}
+
+.myroller8::before {
+    content: "";
+
+    position: absolute;
+    width: 80px;
+    height: 110px;
+    text-align: center;
+    background-image: url(images/icon/d-icon-2.png);
+
+    margin-top: 30px;
+    background-position: center center;
+    background-size: cover;
+
+
+
+
+}
+
+.myroller8:hover::before {
+    background-image: url(images/icon/d-icon-1.png);
+
+    margin-top: 0;
+    top: 0;
+    transition-duration: 2s;
+    overflow: hidden;
+
+
+
+}
