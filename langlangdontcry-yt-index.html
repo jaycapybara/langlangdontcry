@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浪浪別哭</title>
+    <link rel="stylesheet" href="css/mycolor.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <style>
+        body {
+            font-family: "Zen Maru Gothic", serif;
+        }
+
+        /* .wrapper {
+            width: 1024px;
+            margin-top: 0;
+            margin-bottom: 0;
+            margin-left: auto;
+            margin-right: auto;
+
+        } */
+
+        .banner nav ul {
+            display: inline-block;
+
+        }
+
+        .banner nav ul li {
+            float: left;
+            list-style-type: none;
+        }
+
+        .banner nav ul li a {
+            /* background-color: var(--mycolor01); */
+            padding-top: 15px;
+            padding-bottom: 15px;
+            padding-left: 20px;
+            padding-right: 20px;
+            margin-right: 5px;
+            text-decoration: none;
+            color: var(--mycolor30);
+            font-size: 20px;
+
+        }
+
+        .banner nav ul li a:hover {
+            color: var(--mycolor30);
+            background-color: rgba(50, 67, 95, 0.5);
+            border-radius: 25px;
+        }
+
+        .box01 {
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        .bg-cover {
+            background-position: center center;
+            background-size: cover;
+        }
+
+
+        /* 菜單樣式 */
+
+        h1 {
+            font-size: 60px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .category-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+            gap: 10px;
+        }
+
+        .category-btn {
+            padding: 10px 15px;
+            border: none;
+            background: none;
+            color: var(--mycolor29);
+            border-radius: 16px;
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .category-btn:hover {
+            background: var(--mycolor09);
+            transform: scale(1.05);
+        }
+
+        /* 幻燈片樣式 */
+        .menu-slider-container {
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .slider-wrapper {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+            padding: 15px;
+            text-align: center;
+
+        }
+
+        .slide img {
+            width: 100%;
+            height: auto;
+            max-height: 1000px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .slide h3 {
+            font-size: 24px;
+            margin: 10px 0 5px;
+            color: #333;
+        }
+
+        .slide p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .slide span {
+            font-size: 16px;
+            font-weight: bold;
+            color: #91331b;
+        }
+
+        /* 幻燈片按鈕 */
+        .prev-slide,
+        .next-slide {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .prev-slide {
+            left: 10px;
+        }
+
+        .next-slide {
+            right: 10px;
+        }
+
+        .prev-slide:hover,
+        .next-slide:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        /* 會員分級UI CSS
+        .level {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px 0;
+        }
+
+        .level img {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+
+        .button {
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        .普通會員 {
+            background: gray;
+        }
+
+        .VIP {
+            background: gold;
+        }
+
+        .白金會員 {
+            background: blue;
+        } */
+
+
+
+        .level-image {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 20px;
+        }
+
+        #level-name {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        #level-action-btn {
+            font-size: 16px;
+            padding: 10px 20px;
+        }
+
+        .myroller6 {
+            position: relative
+        }
+
+        .myroller6::before {
+            content: "";
+
+            position: absolute;
+            width: 80px;
+            height: 110px;
+            text-align: center;
+            background-image: url(images/icon/b-icon-2.png);
+
+            margin-top: 30px;
+            background-position: center center;
+            background-size: cover;
+
+
+
+
+        }
+
+        .myroller6:hover::before {
+            background-image: url(images/icon/b-icon-1.png);
+
+            margin-top: 0;
+            top: 0;
+            transition-duration: 2s;
+            overflow: hidden;
+
+
+
+        }
+
+        .myroller9 {
+            position: relative
+        }
+
+        .myroller9::before {
+            content: "";
+
+            position: absolute;
+            width: 80px;
+            height: 110px;
+            text-align: center;
+            background-image: url(images/icon/p-icon-2.png);
+
+            margin-top: 30px;
+            background-position: center center;
+            background-size: cover;
+
+
+
+
+        }
+
+        .myroller9:hover::before {
+            background-image: url(images/icon/p-icon-1.png);
+
+            margin-top: 0;
+            top: 0;
+            transition-duration: 2s;
+            overflow: hidden;
+
+
+
+        }
+
+        .myroller10 {
+            position: relative
+        }
+
+        .myroller10::before {
+            content: "";
+
+            position: absolute;
+            width: 80px;
+            height: 110px;
+            text-align: center;
+            background-image: url(images/icon/pk-icon-2.png);
+
+            margin-top: 30px;
+            background-position: center center;
+            background-size: cover;
+
+
+
+
+        }
+
+        .myroller10:hover::before {
+            background-image: url(images/icon/pk-icon-1.png);
+
+            margin-top: 0;
+            top: 0;
+            transition-duration: 2s;
+            overflow: hidden;
+
+
+
+        }
+
+        .myroller7 {
+            position: relative
+        }
+
+        .myroller7::before {
+            content: "";
+
+            position: absolute;
+            width: 80px;
+            height: 110px;
+            text-align: center;
+            background-image: url(images/icon/c-icon-2.png);
+
+            margin-top: 30px;
+            background-position: center center;
+            background-size: cover;
+
+
+
+
+        }
+
+        .myroller7:hover::before {
+            background-image: url(images/icon/c-icon-1.png);
+
+            margin-top: 0;
+            top: 0;
+            transition-duration: 2s;
+            overflow: hidden;
+
+
+
+        }
+
+        .myroller8 {
+            position: relative
+        }
+
+        .myroller8::before {
+            content: "";
+
+            position: absolute;
+            width: 80px;
+            height: 110px;
+            text-align: center;
+            background-image: url(images/icon/d-icon-2.png);
+
+            margin-top: 30px;
+            background-position: center center;
+            background-size: cover;
+
+
+
+
+        }
+
+        .myroller8:hover::before {
+            background-image: url(images/icon/d-icon-1.png);
+
+            margin-top: 0;
+            top: 0;
+            transition-duration: 2s;
+            overflow: hidden;
+
+
+
+        }
+    </style>
+</head>
+
+<body style="background-color: var(--mycolor45);">
+    <section id="s01">
+        <div class="row ">
+            <div class="col-6">
+                <h1 class="p-header_title">
+                    <a href="langlangdontcry-index.html"><img src="images/dogshop08.png" width="100px">
+                    </a>
+                </h1>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- 會員中心 -->
+    <section id="member-section" class="mb-5">
+        <div id="member-container" class="container1 d-none text-003 text-center">
+            <h2 class="">歡迎光臨</h2>
+            <!-- <h2 class="" id="display-username"></h2> -->
+            <p style="font-size: 18px;">您的會員等級:</p>
+            <div class="level ">
+                <span id="level-btn" class="button" style="font-size: 24px;"></span>
+                <div class="mt-3"></div>
+                <button id="member-action-btn" class="btn btn-secondary"></button>
+            </div>
+        </div>
+    </section>
+
+
+
+    <div class="row  justify-content-end  mb-5">
+
+        <div class="col-1">
+            <span class="h4 text-003 fw-900 me-3 d-none" id="s02_username_showtext">歡迎會員: <span class="h3 text-003"
+                    id="s02_username_text">XXX</span></span>
+
+            <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#loginModal"
+                id="s02_login_btn">登入</button>
+            <!-- <button id="login-btn">登入</button>
+                <button id="s02_login_btn">登入</button> -->
+        </div>
+        <div class="col-1">
+            <button class="btn btn-secondary d-none" id="s02_logout_btn">登出</button>
+            <!-- <button id="logout-btn" style="display: none;" class="btn btn-secondary">登出</button> -->
+        </div>
+    </div>
+
+
+
+
+
+
+    <!-- <div class="container"> -->
+    <div class="row justify-content-end  box01   d-none" id="myElement">
+        <div class="col-12">
+            <nav class="navbar " style="background-color:var(--mycolor44);">
+                <!-- <nav class="navbar navbar-expand-lg justify-content-end"> -->
+                <div class="container ">
+                    <a class="navbar " href="#">
+                    </a>
+                    <button class="navbar-toggler " type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse fw-900 h5 " id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="langlangdontcry-index.html">首頁</a>
+                            </li>
+                            <li class="nav-item d-none" id="s02_menu_btn">
+                                <a class="nav-link fw-900" href="langlangdontcry-index.html">菜單</a>
+                            </li>
+
+                            <li class="nav-item d-none" id="s02_orderseat_btn">
+                                <a class="nav-link fw-900" href="langlangdontcry-book-index.html">訂位</a>
+                            </li>
+
+                            <li class="nav-item d-none" id="s03_orderseat_btn">
+                                <a class="nav-link fw-900" href="langlangdontcry-yt-index.html">youtube</a>
+                            </li>
+
+                            <li class="nav-item d-none" id="s04_orderseat_btn">
+                                <a class="nav-link fw-900" href="langlangdontcry-map-index.html">分店資訊</a>
+                            </li>
+
+                            <li class="nav-item dropdown  d-none" id="s02_control_panel_btn_navbar">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    管理後台
+                                </a>
+                                <ul class="dropdown-menu  text-003">
+                                    <li class="nav-item d-none  text-003" id="s04_control_panel_btn">
+                                        <a class="nav-link h3 fw-900"
+                                            href="langlangdontcry-member-control-panel_v1.html" target="_blank">會員管理</a>
+                                    </li>
+                                    <li class="nav-item d-none  text-003" id="s03_menu_panel_btn_navbar">
+                                        <a class="nav-link h3 fw-900" href="20250109-C.html" target="_blank">菜單上架</a>
+                                    </li>
+                                    <li class="nav-item d-none  text-003" id="s02_orderseat_btn_navbar">
+                                        <a class="nav-link h3 fw-900" href="http://192.168.10.103/%e8%a8%82%e4%bd%8d%e8%a1%a8%e5%96%ae/grok/0319order%20copy%202.html" target="_blank">訂單管理</a>
+                                    </li>
+                            </li>
+                        </ul>
+                        </li>
+
+                        </ul>
+
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+    </div>
+
+
+
+
+    <!-- 登入modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-4 fw-900" id="exampleModalLabel">會員登入</h1>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <button class="btn bg-006 " style="color:chocolate;" data-bs-toggle="modal"
+                    data-bs-target="#registerModal" id="s02_reg_btn">還沒有帳號請註冊</button>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="" class="form-label">帳號</label>
+                        <input type="text" class="form-control is-invalid" id="username_login" name="username_login"
+                            v-model="username">
+                        <div class="invalid-feedback">owner01:管理員 owner02:普通會員 owner03:愛心會員 owner04:YT會員 owner05:老闆
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">密碼</label>
+                        <input type="password" class="form-control is-invalid" id="password_login" name="password_login"
+                            v-model="password">
+                        <div class="invalid-feedback">密碼都是123456</div>
+                    </div>
+
+
+                </div>
+                <div class="modal-footer">
+
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="button" class="btn bg-008" id="ok_btn_login">確認</button>
+                    <!-- <button @click="login">登入</button> login-btn -->
+                    <!-- <button type="button" class="btn bg-008" id="ok_btn_login">確認</button> -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- </div> -->
+
+
+
+    <!-- 註冊Modal -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-4 fw-900" id="exampleModalLabel">會員註冊</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-6 ">
+                            <div class="d-flex flex-column h-100 ">
+                                <div class="display-6 fw-900 my-3 ">注意事項</div>
+                                <p>我們會將密碼傳送至您的電子郵件地址。 </p>
+                                <p>我們會使用你的個人資料來支援你在本網站中的使用體驗、管理你的帳號存取權，以及用於隱私權政策中說明的其他用途。</p>
+
+                                <div class="form-check form-switch mt-auto">
+                                    <input type="checkbox" class="form-check-input is-invalid" role="switch" id="chk01"
+                                        name="chk01">
+                                    <label for="chk01" class="form-check-label">不同意</label>
+                                    <div class="valid-feedback">.</div>
+                                    <div class="invalid-feedback">須同意始能註冊</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="mb-3">
+                                <label for="username_reg" class="form-label">帳號</label>
+                                <input type="text" class="form-control is-invalid" id="username_reg" name="username_reg"
+                                    placeholder="3-6字數">
+                                <div class="valid-feedback" id="regModal_username_valid-feedback">符合規則</div>
+                                <div class="invalid-feedback" id="regModal_username_invalid-feedback">不符合規則</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password_reg" class="form-label">密碼</label>
+                                <input type="password" class="form-control is-invalid" id="password_reg"
+                                    name="password_reg" placeholder="3-6字數">
+                                <div class="valid-feedback">符合規則</div>
+                                <div class="invalid-feedback">不符合規則</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="re_password_reg" class="form-label">確認密碼</label>
+                                <input type="password" class="form-control is-invalid" id="re_password_reg"
+                                    name="re_password_reg">
+                                <div class="valid-feedback">符合規則</div>
+                                <div class="invalid-feedback">不符合規則</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="phone_reg" class="form-label">手機號碼</label>
+                                <input type="number" class="form-control is-invalid" placeholder="3-10字數" id="phone_reg"
+                                    name="phone_reg">
+                                <div class="valid-feedback">符合規則</div>
+                                <div class="invalid-feedback">不符合規則</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="button" class="btn bg-008" id="ok_btn_reg">確認</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="s021">
+        <img src="images/dogshop12.png" style="width: 1980px;" class="bg-cover">
+    </section>
+
+    <section>
+        <div class="row  justify-content-end  mt-5">
+            <div class="col-md-6 col-lg-4 fw-900 ">
+                <div class="banner">
+                    <nav>
+                        <ul id="menu-global-nav" class="p-header_lists">
+
+                            <li class="p-header_list d-none " id="s01_menu_btn"><a
+                                    href="langlangdontcry-index.html">菜單</a></li>
+                            <li class="p-header_list d-none " id="s01_orderseat_btn"><a
+                                    href="langlangdontcry-book-index.html">訂位</a></li>
+                            <li class="p-header_list d-none " id="s02_youtube_btn"><a
+                                    href="langlangdontcry-yt-index.html">youtube</a></li>
+                            <li class="p-header_list d-none " id="s01_map_btn"><a
+                                    href="langlangdontcry-map-index.html">分店資訊</a></li>
+                            <li class="p-header_list " id=" "><a href="http://192.168.10.103/project/photo.php">寵物分享區</a></li>
+                            <!-- <li class="p-header_list d-none" id="s03_menu_panel_btn"><a href="20250109-C.html"
+                                target="_blank">菜單上架</a></li>
+                        <li class="p-header_list d-none" id="s02_control_panel_btn"><a
+                                href="langlangdontcry-member-control-panel_v1.html" target="_blank">控制台</a></li> -->
+
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 
+    <section id="s03" class="d-none">
+        <div class="container text-center md-5 pd-5" style="font-size: 100px;">
+            <div class="row">
+                <div class="col-12 fw-900 ">
+                    Menu
+                </div>
+            </div>
+        </div>
+        <div class="menu-container justify-content-center mt-5">
+            <div id="category-container" class="category-container"></div>
+            <div id="menu-container" class="menu-slider-container"></div>
+        </div>
+    </section> -->
+
+
+    <section>
+        <div class="container text-center md-5 pd-5" style="font-size: 100px; width: 800px;">
+            <div class="row">
+                <div class="col-12 fw-900 ">
+                    YouTube
+                </div>
+
+                <iframe width="100" height="600" src="https://www.youtube.com/embed/ypJFPfyakR8?si=hjgapQXXqg7-pgn1"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen class="mt-5"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section id="s04" class="d-none mt-5">
+        <div class="container text-center md-5 pd-5" style="font-size: 100px; width: 800px;">
+            <div class="row">
+
+                <iframe width="100" height="600" src="https://www.youtube.com/embed/Hc6hTeXr7HA?si=9LK4JAxB3Yl-vqr5"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-1 myroller6">
+                    <a href="https://x.com/rockakuofficial/" class=" p-3 " target="_blank">
+                        <!-- <img src="images/icon/b-icon-1.png" alt="Xアイコン"
+                            width="80" height="80" loading="lazy" decoding="async"> -->
+                    </a>
+                </div>
+                <div class="col-1">
+                    <a href="https://x.com/rockakuofficial/" class=" p-3 myroller7" target="_blank">
+                        <!-- <img src="images/icon/b-icon-1.png" alt="Xアイコン"
+                            width="80" height="80" loading="lazy" decoding="async"> -->
+                    </a>
+                </div>
+                <div class="col-1">
+                    <a href="https://x.com/rockakuofficial/" class=" p-3 myroller8" target="_blank">
+                        <!-- <img src="images/icon/b-icon-1.png" alt="Xアイコン"
+                            width="80" height="80" loading="lazy" decoding="async"> -->
+                    </a>
+                </div>
+                <div class="col-1">
+                    <a href="https://x.com/rockakuofficial/" class=" p-3 myroller9" target="_blank">
+                        <!-- <img src="images/icon/b-icon-1.png" alt="Xアイコン"
+                            width="80" height="80" loading="lazy" decoding="async"> -->
+                    </a>
+                </div>
+                <div class="col-1">
+                    <a href="https://x.com/rockakuofficial/" class="p-3 myroller10" target="_blank">
+                        <!-- <img src="images/icon/b-icon-1.png" alt="Xアイコン"
+                            width="80" height="80" loading="lazy" decoding="async"> -->
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/counterup2@2.0.2/dist/index.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+        new WOW().init();
+
+        var flag_username_reg = false;
+        var flag_password_reg = false;
+        var flag_re_password_reg = false;
+        var flag_phone_reg = false;
+        var flag_chk01_reg = false;
+        var flag_username_login = false;
+        var flag_password_login = false;
+
+        $(function () {
+
+            // 菜單選單UI
+            $(document).ready(function () {
+                let menuItems = [];
+                let categories = ['全部'];
+
+                function fetchMenu() {
+                    $.ajax({
+                        url: 'menu.php',
+                        method: 'GET',
+                        dataType: 'json',
+                        success: function (data) {
+                            menuItems = data;
+                            categories = ['全部', ...new Set(data.map(item => item.menuLayer))];
+                            renderCategories();
+                            renderMenu();
+                        },
+                        error: function (error) {
+                            console.error('載入菜單失敗:', error);
+                        }
+                    });
+                }
+
+                function renderCategories() {
+                    let categoryHtml = categories.map(category => `<button class="category-btn fw-900" data-category="${category}">${category}</button>`).join('');
+                    $('#category-container').html(categoryHtml);
+                }
+
+                function renderMenu(category = '全部') {
+                    let filteredMenu = category === '全部' ? menuItems : menuItems.filter(item => item.menuLayer === category);
+                    let menuHtml = `
+                    <div class="menu-slider" >
+                        <div class="slider-wrapper">
+                            ${filteredMenu.map(item => `
+                                <div class="slide">
+                                    <div class="row">
+                                    <div class="col-7"><img src="images/menu/${item.image_path}" alt=""></div>
+                                    <div class="col-3 fw-900 m-auto">
+                                    <h3>${item.Pname}</h3>
+                                    <p>${item.Pstatus}</p>
+                                    <p>${item.Remark}</p>
+                                    <span>$${item.Price}</span> </div>
+                                    </div>
+                                     </div>
+                            `).join('')}
+                        </div>
+                        <button class="prev-slide">&#10094;</button>
+                        <button class="next-slide">&#10095;</button>
+                    </div>
+                `;
+                    $('#menu-container').html(menuHtml);
+                    initSlider();
+                }
+
+                function initSlider() {
+                    let currentIndex = 0;
+                    const slides = $('.slide');
+                    const totalSlides = slides.length;
+
+                    function showSlide(index) {
+                        slides.hide();
+                        slides.eq(index).fadeIn();
+                    }
+
+                    $('.prev-slide').click(function () {
+                        currentIndex = (currentIndex > 0) ? currentIndex - 1 : totalSlides - 1;
+                        showSlide(currentIndex);
+                    });
+
+                    $('.next-slide').click(function () {
+                        currentIndex = (currentIndex < totalSlides - 1) ? currentIndex + 1 : 0;
+                        showSlide(currentIndex);
+                    });
+
+                    showSlide(currentIndex);
+                }
+
+                $(document).on('click', '.category-btn', function () {
+                    let selectedCategory = $(this).data('category');
+                    renderMenu(selectedCategory);
+                });
+
+                fetchMenu();
+            });
+
+
+            // 檢查是否已登入
+
+            $(function () {
+                // 原有的初始化代碼
+                if (getCookie("Uid01")) {
+                    var JSONdata = { "uid01": getCookie("Uid01") };
+                    $.ajax({
+                        type: "POST",
+                        url: "member_control_api_v2 copy.php?action=checkuid",
+                        data: JSON.stringify(JSONdata),
+                        contentType: "application/json",
+                        dataType: "json",
+                        success: function (data) {
+                            showdata_checkuid(data);
+                            displayMemberCenter(data.data); // 添加會員中心顯示
+                        },
+                        error: function () {
+                            Swal.fire({ icon: "error", title: "API介接錯誤", text: "無法驗證會員狀態" });
+                            hideMemberCenter();
+                        }
+                    });
+                } else {
+                    $("#s02_login_btn").removeClass("d-none");
+
+                    $("#s02_username_showtext").addClass("d-none");
+                    $("#s02_logout_btn").addClass("d-none");
+                    hideMemberCenter();
+                }
+
+                // ... 原有的其他事件監聽 ...
+            });
+
+            
+
+            
+
+            // 註冊按鈕事件
+           
+
+            // 登入按鈕事件
+            
+
+            // 登出按鈕事件
+            $("#s02_logout_btn").click(function () {
+                setCookie("Uid01", "", -1);
+                location.reload();
+            });
+
+            // 滾動監聽事件
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 300) {
+                    $("#myElement").removeClass("d-none");
+                } else {
+                    $("#myElement").addClass("d-none");
+                }
+            });
+        });
+
+        function showdata_reg(data) {
+            console.log("註冊返回:", data);
+            if (data.state) {
+                Swal.fire({
+                    icon: "success",
+                    title: data.message,
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $("#registerModal").modal("hide");
+                    }
+                });
+            } else {
+                Swal.fire({
+                    icon: "error",
+                    title: data.message,
+                });
+            }
+        }
+
+        function showdata_login(data) {
+            console.log("登入返回:", data);
+            if (data.state) {
+                Swal.fire({
+                    icon: "success",
+                    title: data.message,
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $("#loginModal").modal("hide");
+                        $("#s02_username_showtext").removeClass("d-none");
+                        $("#s02_username_text").text(data.data.Username);
+                        $("#s02_member_level").text(getLevelText(data.data.membership_level));
+                        $("#s02_reg_btn").addClass("d-none");
+                        $("#s02_login_btn").addClass("d-none");
+                        $("#s02_logout_btn").removeClass("d-none");
+                        $('#member-container').removeClass("d-none");
+                        $("#s02").addClass("d-none");
+
+                        $("#s02_menu_btn").removeClass("d-none");
+                        $("#s02_orderseat_btn").removeClass("d-none");
+                        $("#s04_orderseat_btn").removeClass("d-none");
+                        $("#s01_menu_btn").removeClass("d-none");
+                        $("#s01_orderseat_btn").removeClass("d-none");
+                        $("#s01_map_btn").removeClass("d-none");
+
+                        // 根據會員等級顯示按鈕
+                        const level = String(data.data.membership_level).trim();
+                        if (level === "普通會員") { // 普通會員
+
+                        } else if (level === "愛心會員") { // 愛心會員
+
+                        } else if (level === "YT會員") { // 
+
+                            $("#s01_youtube_btn").removeClass("d-none");
+                            $("#s03_orderseat_btn").removeClass("d-none");
+                            $("#s04").removeClass("d-none");
+                            $("#s02_youtube_btn").removeClass("d-none");
+                        } else if (level === "管理員") { // 管理員
+
+                            $("#s03_menu_panel_btn").removeClass("d-none");
+                            $("#s03_menu_panel_btn_navbar").removeClass("d-none");
+
+                            $("#s02_orderseat_btn_navbar").removeClass("d-none");
+                            $("#s02_control_panel_btn").removeClass("d-none");
+                            $("#s02_control_panel_btn_navbar").removeClass("d-none");
+                            $("#s04_control_panel_btn").removeClass("d-none");
+                            $("#s01_youtube_btn").removeClass("d-none");
+                            $("#s03_orderseat_btn").removeClass("d-none");
+                            $("#s02_youtube_btn").removeClass("d-none");
+                            $("#s04").removeClass("d-none");
+                        } else if (level === "老闆") { //老闆
+
+                            $("#s03_menu_panel_btn").removeClass("d-none");
+                            $("#s03_menu_panel_btn_navbar").removeClass("d-none");
+
+                            $("#s02_orderseat_btn_navbar").removeClass("d-none");
+                            $("#s02_control_panel_btn").removeClass("d-none");
+                            $("#s02_control_panel_btn_navbar").removeClass("d-none");
+                            $("#s04_control_panel_btn").removeClass("d-none");
+                            $("#s02_youtube_btn").removeClass("d-none");
+                            $("#s04").removeClass("d-none");
+                            $("#s01_youtube_btn").removeClass("d-none");
+                            $("#s03_orderseat_btn").removeClass("d-none");
+                        }
+                        setCookie("Uid01", data.data.Uid01, 7);
+                    }
+                });
+            } else {
+                Swal.fire({
+                    icon: "error",
+                    title: data.message,
+                });
+            }
+        }
+        // 查看登入狀態
+
+        // function checkLoginStatus() {
+        //     if (getCookie("Uid01")) {
+        //         var JSONdata = { "uid01": getCookie("Uid01") };
+        //         console.log("檢查 Uid01:", JSON.stringify(JSONdata));
+        //         $.ajax({
+        //             type: "POST",
+        //             url: "member_control_api_v2.php?action=checkuid",
+        //             data: JSON.stringify(JSONdata),
+        //             contentType: "application/json",
+        //             dataType: "json",
+        //             success: function (data) {
+        //                 console.log("檢查UID返回:", data);
+        //                 if (data.state) {
+        //                     displayMemberCenter(data.data);
+        //                 } else {
+        //                     hideMemberCenter();
+        //                 }
+        //             },
+        //             error: function () {
+        //                 Swal.fire({
+        //                     icon: "error",
+        //                     title: "API介接錯誤",
+        //                     text: "無法驗證會員狀態"
+        //                 });
+        //                 hideMemberCenter();
+        //             }
+        //         });
+        //     } else {
+        //         hideMemberCenter();
+        //     }
+        // }
+
+        function showdata_checkuid(data) {
+            console.log("檢查UID返回:", data);
+            if (data.state) {
+                $("#s02_username_showtext").removeClass("d-none");
+                $("#s02_username_text").text(data.data.Username);
+                $("#s02_member_level").text(getLevelText(data.data.membership_level));
+                $("#s02_reg_btn").addClass("d-none");
+                $("#s02_login_btn").addClass("d-none");
+                $("#s02_logout_btn").removeClass("d-none");
+                $("#s02").addClass("d-none");
+
+                $("#s02_menu_btn").removeClass("d-none");
+                $("#s02_orderseat_btn").removeClass("d-none");
+                $("#s04_orderseat_btn").removeClass("d-none");
+                $("#s01_menu_btn").removeClass("d-none");
+                $("#s01_orderseat_btn").removeClass("d-none");
+                $("#s01_map_btn").removeClass("d-none");
+                $("#s01_orderseat_btn").removeClass("d-none");
+                $("#s02_orderseat_btn").removeClass("d-none");
+                $("#s03").removeClass("d-none");
+
+                // 根據會員等級顯示按鈕
+                const level = String(data.data.membership_level).trim();
+                if (level === "普通會員") { // 普通會員
+
+                } else if (level === "愛心會員") { // 愛心會員
+
+                } else if (level === "YT會員") { // 
+
+                    $("#s04").removeClass("d-none");
+                    $("#s03_orderseat_btn").removeClass("d-none");
+                    $("#s04").removeClass("d-none");
+                    $("#s02_youtube_btn").removeClass("d-none");
+                } else if (level === "管理員") { // 管理員
+
+                    $("#s03_menu_panel_btn").removeClass("d-none");
+                    $("#s03_menu_panel_btn_navbar").removeClass("d-none");
+                    $("#s02_youtube_btn").removeClass("d-none");
+                    $("#s02_orderseat_btn_navbar").removeClass("d-none");
+                    $("#s02_control_panel_btn").removeClass("d-none");
+                    $("#s02_control_panel_btn_navbar").removeClass("d-none");
+                    $("#s04_control_panel_btn").removeClass("d-none");
+                    $("#s03_orderseat_btn").removeClass("d-none");
+                    $("#s04").removeClass("d-none");
+
+                    $("#s04").removeClass("d-none");
+                } else if (level === "老闆") { //老闆
+                    $("#s02_youtube_btn").removeClass("d-none");
+                    $("#s03_menu_panel_btn").removeClass("d-none");
+                    $("#s03_menu_panel_btn_navbar").removeClass("d-none");
+
+                    $("#s02_orderseat_btn_navbar").removeClass("d-none");
+                    $("#s02_control_panel_btn").removeClass("d-none");
+                    $("#s02_control_panel_btn_navbar").removeClass("d-none");
+                    $("#s04_control_panel_btn").removeClass("d-none");
+
+                    $("#s04").removeClass("d-none");
+                    $("#s03_orderseat_btn").removeClass("d-none");
+                    $("#s04").removeClass("d-none");
+                }
+                setCookie("Uid01", data.data.Uid01, 7);
+            } else {
+                $("#s02_login_btn").removeClass("d-none");
+                $("#s02_username_showtext").addClass("d-none");
+                $("#s02_logout_btn").addClass("d-none");
+            }
+        }
+
+        function showdata_checkuni(data) {
+            console.log("檢查帳號唯一性返回:", data);
+            if (data.state) {
+                $("#username_reg").removeClass("is-invalid");
+                $("#username_reg").addClass("is-valid");
+                $("#regModal_username_valid-feedback").text(data.message);
+                flag_username_reg = true;
+            } else {
+                $("#username_reg").removeClass("is-valid");
+                $("#username_reg").addClass("is-invalid");
+                $("#regModal_username_invalid-feedback").text(data.message);
+                flag_username_reg = false;
+            }
+        }
+
+        function getLevelText(level) {
+            console.log("getLevelText 接收到的 level:", level, "類型:", typeof level);
+            const parsedLevel = (level !== undefined && level !== null) ? String(level).trim() : "0";
+            switch (parsedLevel) {
+                case "普通會員": return "普通會員";
+                case "愛心會員": return "愛心會員";
+                case "YT會員": return "YT會員";
+                case "管理員": return "管理員";
+                case "老闆": return "老闆";
+                default: return "未知 (" + parsedLevel + ")";
+            }
+        }
+
+        function setCookie(cname, cvalue, exdays) {
+            const d = new Date();
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+            let expires = "expires=" + d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+
+        function getCookie(cname) {
+            let name = cname + "=";
+            let ca = document.cookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+
+        // 原有的菜單邏輯、YouTube API 等保持不變
+        // youtube ifram api
+        // 2. This code loads the IFrame Player API code asynchronously.
+        var tag = document.createElement('script');
+
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        // 3. This function creates an <iframe> (and YouTube player)
+        //    after the API code downloads.
+        var player;
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player', {
+                height: '600',
+                width: '100',
+                videoId: 'M7lc1UVf-VE',
+                playerVars: {
+                    'playsinline': 1
+                },
+                events: {
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+        }
+
+        // 4. The API will call this function when the video player is ready.
+        function onPlayerReady(event) {
+            event.target.playVideo();
+        }
+
+        // 5. The API calls this function when the player's state changes.
+        //    The function indicates that when playing a video (state=1),
+        //    the player should play for six seconds and then stop.
+        var done = false;
+        function onPlayerStateChange(event) {
+            if (event.data == YT.PlayerState.PLAYING && !done) {
+                setTimeout(stopVideo, 6000);
+                done = true;
+            }
+        }
+        function stopVideo() {
+            player.stopVideo();
+        }
+
+
+
+        function displayMemberCenter(userData) {
+            $("#member-container").removeClass("d-none");
+            $("#display-username").text(userData.Username);
+
+            const level = userData.membership_level !== undefined ? String(userData.membership_level).trim() : "1";
+            const levelText = getLevelText(level);
+            $("#level-btn").text(levelText);
+
+            switch (level) {
+                case "普通會員":
+                    $("#member-action-btn").text("前往訂位");
+                    $("#member-action-btn").off("click").on("click", function () {
+                        location.href = "#s04";
+                    });
+                    break;
+
+                case "愛心會員":
+                    $("#member-action-btn").text("聊天室");
+                    $("#member-action-btn").off("click").on("click", function () {
+                        location.href = "http://192.168.10.103/project/try/talkroom.html";
+                    });
+                    break;
+                case "YT會員":
+                    $("#member-action-btn").text("前往捐款");
+                    $("#member-action-btn").off("click").on("click", function () {
+                        location.href = "http://192.168.10.103/project/try/talkroom.html";
+                    });
+                    break;
+                case "管理員":
+                    $("#member-action-btn").text("前往控制台");
+                    $("#member-action-btn").off("click").on("click", function () {
+                        location.href = "langlangdontcry-member-control-panel_v1.html";
+                    });
+                    break;
+                case "老闆":
+                    $("#member-action-btn").text("前往訂位");
+                    $("#member-action-btn").off("click").on("click", function () {
+                        location.href = "#s04";
+                    });
+                    break;
+                default:
+                    $("#member-action-btn").text("預設功能");
+                    $("#member-action-btn").off("click").on("click", function () {
+                        Swal.fire({ icon: "info", title: "功能開發中" });
+                    });
+            }
+        }
+
+        function hideMemberCenter() {
+            $("#member-container").addClass("d-none");
+            $("#display-username").text("");
+            $("#level-btn").text("");
+            $("#member-action-btn").text("");
+        }
+
+    </script>
+
+</body>
+
+</html>

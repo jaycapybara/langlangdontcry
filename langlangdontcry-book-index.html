@@ -1,0 +1,1864 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浪浪別哭</title>
+    <link rel="stylesheet" href="css/mycolor.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <style>
+        body {
+            font-family: "Zen Maru Gothic", serif;
+        }
+
+        .banner nav ul {
+            display: inline-block;
+        }
+
+        .banner nav ul li {
+            float: left;
+            list-style-type: none;
+        }
+
+        .banner nav ul li a {
+            padding-top: 15px;
+            padding-bottom: 15px;
+            padding-left: 20px;
+            padding-right: 20px;
+            margin-right: 5px;
+            text-decoration: none;
+            color: var(--mycolor30);
+            font-size: 20px;
+        }
+
+        .banner nav ul li a:hover {
+            color: var(--mycolor30);
+            background-color: rgba(50, 67, 95, 0.5);
+            border-radius: 25px;
+        }
+
+        .box01 {
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        .bg-cover {
+            background-position: center center;
+            background-size: cover;
+        }
+
+        h1 {
+            font-size: 60px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .category-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+            gap: 10px;
+        }
+
+        .category-btn {
+            padding: 10px 15px;
+            border: none;
+            background: none;
+            color: var(--mycolor29);
+            border-radius: 16px;
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .category-btn:hover {
+            background: var(--mycolor09);
+            transform: scale(1.05);
+        }
+
+        .menu-slider-container {
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .slider-wrapper {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .slide img {
+            width: 100%;
+            height: auto;
+            max-height: 1000px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .slide h3 {
+            font-size: 24px;
+            margin: 10px 0 5px;
+            color: #333;
+        }
+
+        .slide p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .slide span {
+            font-size: 16px;
+            font-weight: bold;
+            color: #91331b;
+        }
+
+        .prev-slide,
+        .next-slide {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .prev-slide {
+            left: 10px;
+        }
+
+        .next-slide {
+            right: 10px;
+        }
+
+        .prev-slide:hover,
+        .next-slide:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .level-image {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 20px;
+        }
+
+        #level-name {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        #level-action-btn {
+            font-size: 16px;
+            padding: 10px 20px;
+        }
+
+        .myroller6 {
+            position: relative;
+        }
+
+        .myroller6::before {
+            content: "";
+            position: absolute;
+            width: 80px;
+            height: 110px;
+            text-align: center;
+            background-image: url(images/icon/b-icon-2.png);
+            margin-top: 30px;
+            background-position: center center;
+            background-size: cover;
+        }
+
+        .myroller6:hover::before {
+            background-image: url(images/icon/b-icon-1.png);
+            margin-top: 0;
+            top: 0;
+            transition-duration: 2s;
+            overflow: hidden;
+        }
+
+        .myroller9 {
+            position: relative;
+        }
+
+        .myroller9::before {
+            content: "";
+            position: absolute;
+            width: 80px;
+            height: 110px;
+            text-align: center;
+            background-image: url(images/icon/p-icon-2.png);
+            margin-top: 30px;
+            background-position: center center;
+            background-size: cover;
+        }
+
+        .myroller9:hover::before {
+            background-image: url(images/icon/p-icon-1.png);
+            margin-top: 0;
+            top: 0;
+            transition-duration: 2s;
+            overflow: hidden;
+        }
+
+        .myroller10 {
+            position: relative;
+        }
+
+        .myroller10::before {
+            content: "";
+            position: absolute;
+            width: 80px;
+            height: 110px;
+            text-align: center;
+            background-image: url(images/icon/pk-icon-2.png);
+            margin-top: 30px;
+            background-position: center center;
+            background-size: cover;
+        }
+
+        .myroller10:hover::before {
+            background-image: url(images/icon/pk-icon-1.png);
+            margin-top: 0;
+            top: 0;
+            transition-duration: 2s;
+            overflow: hidden;
+        }
+
+        .myroller7 {
+            position: relative;
+        }
+
+        .myroller7::before {
+            content: "";
+            position: absolute;
+            width: 80px;
+            height: 110px;
+            text-align: center;
+            background-image: url(images/icon/c-icon-2.png);
+            margin-top: 30px;
+            background-position: center center;
+            background-size: cover;
+        }
+
+        .myroller7:hover::before {
+            background-image: url(images/icon/c-icon-1.png);
+            margin-top: 0;
+            top: 0;
+            transition-duration: 2s;
+            overflow: hidden;
+        }
+
+        .myroller8 {
+            position: relative;
+        }
+
+        .myroller8::before {
+            content: "";
+            position: absolute;
+            width: 80px;
+            height: 110px;
+            text-align: center;
+            background-image: url(images/icon/d-icon-2.png);
+            margin-top: 30px;
+            background-position: center center;
+            background-size: cover;
+        }
+
+        .myroller8:hover::before {
+            background-image: url(images/icon/d-icon-1.png);
+            margin-top: 0;
+            top: 0;
+            transition-duration: 2s;
+            overflow: hidden;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        .label1 {
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        input,
+        select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .selecttime {
+            width: 100%;
+            padding: 12px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .selecttime:hover {
+            background: #45a049;
+        }
+
+        .seat-map {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .seat {
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #ccc;
+            cursor: pointer;
+        }
+
+        .seat.available {
+            background-color: #d4edda;
+        }
+
+        .seat.unavailable {
+            background-color: #f8d7da;
+        }
+
+        .seat.selected {
+            background-color: #cce5ff;
+        }
+
+        .menu-section {
+            margin-bottom: 15px;
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            padding: 5px;
+            background: #f9f9f9;
+            border-radius: 4px;
+        }
+
+        .menu-item select {
+            width: 80px;
+            margin-left: 10px;
+        }
+
+        .menu-item span {
+            flex-grow: 1;
+        }
+
+        .combo-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .combo-drink-options {
+            margin-left: 20px;
+        }
+
+        .total {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .warning {
+            color: #e74c3c;
+            margin-top: 5px;
+        }
+
+        .button1 {
+            padding: 12px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .button1:hover {
+            background: #45a049;
+        }
+
+        #map {
+            width: 100%;
+            height: 500px;
+        }
+
+        #info {
+            margin-top: 10px;
+            font-size: 18px;
+        }
+
+        #challengeModal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border: 1px solid black;
+            text-align: center;
+            z-index: 1000;
+        }
+
+        #overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+        #loginForm {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body style="background-color: var(--mycolor45);" id="app">
+    <section id="s01">
+        <div class="row ">
+            <div class="col-6">
+                <h1 class="p-header_title">
+                    <a href="langlangdontcry-index.html"><img src="images/dogshop08.png" width="100px"></a>
+                </h1>
+            </div>
+        </div>
+    </section>
+
+    <!-- 會員中心 -->
+    <!-- <section id="member-section" class="mb-5">
+        <div id="member-container" class="container1 d-none text-003 text-center">
+            <h2 class="">歡迎光臨</h2>
+            <p style="font-size: 18px;">您的會員等級:</p>
+            <div class="level ">
+                <span id="level-btn" class="button" style="font-size: 24px;"></span>
+                <div class="mt-3"></div>
+                <button id="member-action-btn" class="btn btn-secondary"></button>
+            </div>
+        </div>
+    </section> -->
+
+    <div class="row justify-content-end mb-5">
+        <div class="col-1">
+            <button class="btn bg-006" style="color:chocolate;" data-bs-toggle="modal" data-bs-target="#registerModal">
+                還沒有訂位請趕快訂位
+            </button>
+        </div>
+        <div class="col-1">
+            <span class="h4 text-003 fw-900 me-3 d-none" id="s02_username_showtext">歡迎會員: <span class="h3 text-003"
+                    id="s02_username_text">XXX</span></span>
+            <!-- <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#loginModal"
+                id="s02_login_btn">登入</button> -->
+
+            <!-- 登入表單 -->
+
+        </div>
+        <div class="col-1">
+            <button class="btn btn-secondary d-none" id="s02_logout_btn">登出</button>
+            <!-- <button class="btn btn-secondary d-none" id="logoutBtn">登出</button> -->
+        </div>
+    </div>
+
+    <div class="row justify-content-end box01 d-none" id="myElement">
+        <div class="col-12">
+            <nav class="navbar" style="background-color:var(--mycolor44);">
+                <div class="container">
+                    <a class="navbar" href="#"></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse fw-900 h5" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="langlangdontcry-index.html">首頁</a>
+                            </li>
+                            <li class="nav-item d-none" id="s02_menu_btn">
+                                <a class="nav-link fw-900" href="langlangdontcry-index.html">菜單</a>
+                            </li>
+                            <li class="nav-item d-none" id="s02_orderseat_btn">
+                                <a class="nav-link fw-900" href="langlangdontcry-book-index.html">訂位</a>
+                            </li>
+                            <li class="nav-item d-none" id="s03_orderseat_btn">
+                                <a class="nav-link fw-900" href="langlangdontcry-yt-index.html">youtube</a>
+                            </li>
+                            <li class="nav-item d-none" id="s04_orderseat_btn">
+                                <a class="nav-link fw-900" href="langlangdontcry-map-index.html">分店資訊</a>
+                            </li>
+                            <li class="nav-item dropdown d-none" id="s02_control_panel_btn_navbar">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">管理後台</a>
+                                <ul class="dropdown-menu text-003">
+                                    <li class="nav-item d-none text-003" id="s04_control_panel_btn">
+                                        <a class="nav-link h3 fw-900"
+                                            href="langlangdontcry-member-control-panel_v1.html" target="_blank">會員管理</a>
+                                    </li>
+                                    <li class="nav-item d-none text-003" id="s03_menu_panel_btn_navbar">
+                                        <a class="nav-link h3 fw-900" href="20250109-C.html" target="_blank">菜單上架</a>
+                                    </li>
+                                    <li class="nav-item d-none  text-003" id="s02_orderseat_btn_navbar">
+                                        <a class="nav-link h3 fw-900" href="http://192.168.10.103/%e8%a8%82%e4%bd%8d%e8%a1%a8%e5%96%ae/grok/0319order%20copy%202.html" target="_blank">訂單管理</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <!-- 訂位Modal -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-4 fw-900" id="exampleModalLabel">訂位系統</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-3">
+                            <div class="d-flex flex-column h-100">
+                                <form action="process.php" method="POST" id="bookingForm" ref="bookingForm">
+                                    <div class="form-group">
+                                        <label for="name" class="label">姓名</label>
+                                        <input type="text" id="name" v-model="form.name" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phone" class="label">電話</label>
+                                        <input type="tel" id="phone" v-model="form.phone" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="date" class="label">日期</label>
+                                        <input type="date" id="date" v-model="form.date" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="time" class="label">時間</label>
+                                        <select id="time" v-model="form.time" required>
+                                            <option value="" disabled selected>請選擇時間</option>
+                                            <option value="12:00">12:00</option>
+                                            <option value="13:00">13:00</option>
+                                            <option value="18:00">18:00</option>
+                                            <option value="19:00">19:00</option>
+                                            <option value="20:00">20:00</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="shop" class="label">分店</label>
+                                        <select id="shop" v-model="form.shop" required>
+                                            <option value="" disabled selected>請選擇分店</option>
+                                            <option value="台北店">台北店</option>
+                                            <option value="台中店">台中店</option>
+                                            <option value="台南店">台南店</option>
+                                        </select>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="mb-3">
+                                <div class="form-group">
+                                    <label for="people" class="label">人數: </label>
+                                    <input type="number" id="people" v-model.number="form.people" min="1" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="pets" class="label">寵物數量:</label>
+                                    <input type="number" id="pets" v-model.number="form.pets" min="0" required>
+                                </div>
+                                <button type="button" @click="checkAvailability" class="selecttime">查詢可用時段</button>
+                                <h2>選擇座位</h2>
+                                <div id="seatMap" class="seat-map"></div>
+                                <!-- <div class="form-check form-switch mt-auto">
+                                    <input type="checkbox" class="form-check-input is-invalid" role="switch" id="chk01"
+                                        name="chk01">
+                                    <label for="chk01" class="form-check-label">不同意</label>
+                                    <div class="valid-feedback">.</div>
+                                    <div class="invalid-feedback">須同意始能訂位</div>
+                                </div> -->
+                            </div>
+                        </div>
+                        <div class="col-5">
+                            <div class="form-group">
+                                <label class="label">選擇菜單（套餐含沙拉、1杯飲料、麵包，每套加90元）</label>
+                                <div class="menu-section">
+                                    <label class="label1 me-2">菜單分類</label>
+                                    <select v-model="selectedCategory">
+                                        <option value="">請選擇分類</option>
+                                        <option v-for="cat in categories" :value="cat" :key="cat">{{ cat }}</option>
+                                    </select>
+                                </div>
+                                <div v-if="selectedCategory" class="menu-section">
+                                    <h3>{{ selectedCategory }}</h3>
+                                    <div v-for="item in filteredMenu" :key="item.id" class="menu-item">
+                                        <span>{{ item.name }} - ${{ item.price }}</span>
+                                        <select v-model.number="quantities[item.id]">
+                                            <option v-for="n in 11" :value="n-1" :key="n-1">{{ n-1 }}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="combo-group">
+                                    <label class="label">套餐數量</label>
+                                    <input type="number" v-model.number="comboQuantity" min="0" max="10"
+                                        style="width: 80px;">
+                                </div>
+                                <div class="combo-drink-options" v-if="comboQuantity > 0">
+                                    <label class="label">套餐飲料選擇（每套1杯）</label>
+                                    <div v-for="index in comboQuantity" :key="index">
+                                        <h4>套餐 {{ index }}</h4>
+                                        <div v-for="drink in comboDrinkOptions" :key="drink.id">
+                                            <input type="radio" :value="drink.id"
+                                                v-model="comboDrinkSelections[index-1]"
+                                                :name="'combo_drink_' + (index-1)">
+                                            {{ drink.name }} - 免費
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="col-2">
+                        <img src="images/dogshop 02.png" alt="">
+                    </div>
+                    <div class="col-6">
+                        <div class="selected-items">
+                            <h3>已選餐點</h3>
+                            <ul v-if="selectedItems.length > 0 || comboQuantity > 0">
+                                <li v-for="item in selectedItemsDisplay" :key="item.id">
+                                    {{ item.name }} x {{ item.quantity }} - ${{ item.totalPrice }}
+                                </li>
+                                <li v-if="comboQuantity > 0" class="combo-section">
+                                    套餐 x {{ comboQuantity }} - ${{ comboQuantity * comboExtraCost }}
+                                    <ul>
+                                        <li v-for="(drinkId, index) in comboDrinkSelections" :key="index">
+                                            - 套餐 {{ index + 1 }} 飲料: {{ getComboDrinkName(drinkId) }}
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <p v-else>尚未選擇任何餐點</p>
+                        </div>
+                        <div class="total">
+                            總金額: ${{ totalAmount }}
+                            <div v-if="totalAmount < minimumSpend * form.people" class="warning">
+                                每人低消 ${{ minimumSpend }}，目前未達低消要求
+                            </div>
+                        </div>
+                        <button type="submit" class="button1" @click.prevent="submitBooking">提交訂位與訂餐</button>
+                    </div>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <div id="confirmation" style="display:none; margin-top: 20px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="s021">
+        <img src="images/dogshop10.png" style="width: 1980px;" class="bg-cover">
+    </section>
+
+    <section>
+        <div class="row  justify-content-end  mt-5">
+            <div class="col-md-6 col-lg-4 fw-900 ">
+                <div class="banner">
+                    <nav>
+                        <ul id="menu-global-nav" class="p-header_lists">
+
+                            <li class="p-header_list d-none " id="s01_menu_btn"><a
+                                    href="langlangdontcry-index.html">菜單</a></li>
+                            <li class="p-header_list d-none " id="s01_orderseat_btn"><a
+                                    href="langlangdontcry-book-index.html">訂位</a></li>
+                            <li class="p-header_list d-none " id="s02_youtube_btn"><a
+                                    href="langlangdontcry-yt-index.html">youtube</a></li>
+                            <li class="p-header_list d-none " id="s01_map_btn"><a
+                                    href="langlangdontcry-map-index.html">分店資訊</a></li>
+                            <li class="p-header_list " id=" "><a
+                                    href="http://192.168.10.103/project/photo.php">寵物分享區</a></li>
+                            <!-- <li class="p-header_list d-none" id="s03_menu_panel_btn"><a href="20250109-C.html"
+                                target="_blank">菜單上架</a></li>
+                        <li class="p-header_list d-none" id="s02_control_panel_btn"><a
+                                href="langlangdontcry-member-control-panel_v1.html" target="_blank">控制台</a></li> -->
+
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="" class="">
+        <div class="container text-center md-5 pd-5" style="font-size: 100px;">
+            <div class="row">
+                <div class="col-12 fw-900 ">
+                    Q&A
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="d-flex justify-content-center mb-5">
+        <div>
+            <h5 class="mb-5 mt-5">想問什麼可以問我，但我不一定會認真回答你</h5>
+            <input v-model="message" @keyup.enter="sendMessage" placeholder="輸入訊息...">
+            <button @click="sendMessage" class="btn btn-secondary ms-4">發送</button>
+            <p v-if="response">AI 回應：{{ response }}</p>
+        </div>
+
+    </section>
+
+
+    <!-- 寵物領土爭霸遊戲 -->
+    <div>
+        <h2 class="fw-900">寵物領土爭霸</h2>
+        <div id="gameContent" style="display: none;">
+            <div id="playerInfo">
+                歡迎，<span id="playerName"></span>！
+                <!-- <button id="logoutBtn">登出</button> -->
+            </div>
+            <div id="setPlayerName" style="margin-bottom: 10px; display: none;">
+                <input id="newPlayerName" placeholder="輸入你的玩家名稱" style="margin-right: 10px;">
+                <button id="setPlayerNameBtn" class="btn btn-light">設定玩家名稱</button>
+            </div>
+            <div id="map" style="width: 100%; height: 500px;"></div>
+            <p id="movesInfo">剩餘移動次數：<span id="movesLeft">5</span></p>
+        </div>
+        <div id="notLoggedIn" style="display: block;">
+            <p>請先註冊或登入會員以進入遊戲</p>
+        </div>
+
+        <!-- 挑戰事件彈窗 -->
+        <div id="overlay" style="display: none;"></div>
+        <div id="challengeModal" style="display: none;">
+            <h3 id="challengeTitle"></h3>
+            <p id="challengeText"></p>
+            <button id="battleBtn" style="display: none;" class="btn btn-light">攻擊！</button>
+            <div id="quizButtons" style="display: none;">
+                <button id="quizTrueBtn" class="btn btn-light">可以</button>
+                <button id="quizFalseBtn" class="btn btn-light">不行</button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-1 myroller6">
+                    <a href="https://x.com/rockakuofficial/" class="p-3" target="_blank"></a>
+                </div>
+                <div class="col-1">
+                    <a href="https://x.com/rockakuofficial/" class="p-3 myroller7" target="_blank"></a>
+                </div>
+                <div class="col-1">
+                    <a href="https://x.com/rockakuofficial/" class="p-3 myroller8" target="_blank"></a>
+                </div>
+                <div class="col-1">
+                    <a href="https://x.com/rockakuofficial/" class="p-3 myroller9" target="_blank"></a>
+                </div>
+                <div class="col-1">
+                    <a href="https://x.com/rockakuofficial/" class="p-3 myroller10" target="_blank"></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/counterup2@2.0.2/dist/index.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <!-- <script src="js/auth.js"></script> -->
+    <script>
+
+        // 全域變數
+        let map = null;
+        let petMarker = null;
+        let petPosition = { lat: 24.195801476273722, lng: 120.76721335303729 };
+        let movesLeft = 5;
+        let ownedTerritories = [];
+        let userId = null;
+
+        const { createApp } = Vue;
+
+        createApp({
+            data() {
+                return {
+                    form: {
+                        name: '',
+                        phone: '',
+                        date: '',
+                        time: '',
+                        people: 1,
+                        pets: 0,
+                        shop: '',
+                        seat_id: null,
+                    },
+                    menu: [],
+                    selectedCategory: '',
+                    quantities: {},
+                    comboQuantity: 0,
+                    comboExtraCost: 90,
+                    comboDrinkSelections: [],
+                    minimumSpend: 100,
+                    comboDrinkOptions: [
+                        { id: 'd1', name: '美式咖啡', price: 0 },
+                        { id: 'd2', name: '英式奶茶', price: 0 },
+                        { id: 'd3', name: '紅茶', price: 0 }
+                    ],
+                    message: '',
+                    response: '',
+                    // map: null,
+                    // petMarker: null,
+                    // petPosition: { lat: 24.195801476273722, lng: 120.76721335303729 },
+                    // movesLeft: 5,
+                    // ownedTerritories: [],
+                    // challengeTitle: '',
+                    // challengeText: '',
+                    // challengeType: '',
+                    // playerName: '',
+                    // userId: null,
+                    // isLoggedIn: false,
+                    // newPlayerName: '',
+                };
+            },
+            computed: {
+                categories() {
+                    return [...new Set(this.menu.map(item => item.category))];
+                },
+                filteredMenu() {
+                    return this.menu.filter(item =>
+                        item.category === this.selectedCategory &&
+                        !this.comboDrinkOptions.some(drink => drink.name === item.name)
+                    );
+                },
+                selectedItems() {
+                    return this.menu.filter(item => this.quantities[item.id] > 0).map(item => item.id);
+                },
+                selectedItemsDisplay() {
+                    return this.menu
+                        .filter(item => this.quantities[item.id] > 0)
+                        .map(item => ({
+                            id: item.id,
+                            name: item.name,
+                            quantity: this.quantities[item.id],
+                            totalPrice: item.price * this.quantities[item.id]
+                        }));
+                },
+                totalAmount() {
+                    let subtotal = 0;
+                    this.menu.forEach(item => {
+                        const quantity = this.quantities[item.id] || 0;
+                        if (quantity > 0) {
+                            subtotal += item.price * quantity;
+                        }
+                    });
+                    const comboCost = this.comboQuantity * this.comboExtraCost;
+                    return subtotal + comboCost;
+                }
+            },
+            methods: {
+                getComboDrinkName(drinkId) {
+                    if (!drinkId) return '未選擇';
+                    const drink = this.comboDrinkOptions.find(d => d.id === drinkId);
+                    return drink ? drink.name : '未選擇';
+                },
+                async submitBooking() {
+                    const { name, phone, date, time, people, pets, shop, seat_id } = this.form;
+
+                    if (!name || !phone || !date || !time || !people || pets === '' || !shop || !seat_id) {
+                        alert('請填寫所有訂位欄位並選擇座位');
+                        return;
+                    }
+
+                    if (this.totalAmount < this.minimumSpend * people) {
+                        alert('未達每人低消要求，請增加訂單金額');
+                        return;
+                    }
+
+                    const orderData = {
+                        ...this.form,
+                        items: this.selectedItems.map(id => ({
+                            id,
+                            quantity: this.quantities[id],
+                            price: this.menu.find(m => m.id === id).price,
+                            name: this.menu.find(m => m.id === id).name
+                        })),
+                        comboQuantity: this.comboQuantity,
+                        comboDrinks: this.comboDrinkSelections.map((id, index) => ({
+                            id,
+                            name: id ? this.comboDrinkOptions.find(d => d.id === id).name : '未選擇',
+                            price: 0
+                        })),
+                        total: this.totalAmount
+                    };
+
+                    let confirmationMessage = `
+        <div style="text-align: left;">
+            <h4>請確認您的訂單內容：</h4>
+            <ul>
+                <li>姓名: ${name}</li>
+                <li>電話: ${phone}</li>
+                <li>日期: ${date}</li>
+                <li>時間: ${time}</li>
+                <li>分店: ${shop}</li>
+                <li>人數: ${people}</li>
+                <li>寵物數量: ${pets}</li>
+                <li>座位: ${document.querySelector('.seat.selected')?.textContent || '未選擇'}</li>
+                
+            </ul>
+            <h5>餐點內容:</h5>
+            <ul>
+    `;
+                    if (this.selectedItemsDisplay.length > 0) {
+                        this.selectedItemsDisplay.forEach(item => {
+                            confirmationMessage += `<li>${item.name} x ${item.quantity} = $${item.totalPrice}</li>`;
+                        });
+                    }
+                    if (this.comboQuantity > 0) {
+                        confirmationMessage += `<li>套餐 x ${this.comboQuantity} = $${this.comboQuantity * this.comboExtraCost}`;
+                        confirmationMessage += `<ul>`;
+                        this.comboDrinkSelections.forEach((drinkId, index) => {
+                            confirmationMessage += `<li>套餐 ${index + 1} 飲料: ${this.getComboDrinkName(drinkId)}</li>`;
+                        });
+                        confirmationMessage += `</ul></li>`;
+                    }
+                    if (this.selectedItemsDisplay.length === 0 && this.comboQuantity === 0) {
+                        confirmationMessage += `<li>無餐點</li>`;
+                    }
+                    confirmationMessage += `
+            </ul>
+            <p><strong>總金額: $${this.totalAmount}</strong></p>
+        </div>
+    `;
+
+                    // 使用 SweetAlert2 顯示確認對話框
+                    const result = await Swal.fire({
+                        title: '確認訂單',
+                        html: confirmationMessage, // 使用 html 屬性替代 text
+                        icon: 'question',
+                        showCancelButton: true,
+                        confirmButtonText: '確認送出',
+                        cancelButtonText: '取消',
+                        confirmButtonColor: '#4CAF50',
+                        cancelButtonColor: '#d33'
+                    });
+
+                    if (!result.isConfirmed) {
+                        return; // 如果用戶取消，則停止提交
+                    }
+
+                    // 提交訂單
+                    try {
+                        const response = await fetch('backend.php?action=book', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(orderData)
+                        });
+                        const data = await response.json();
+
+                        if (data.success) {
+                            const confirmation = document.getElementById('confirmation');
+                            confirmation.style.display = 'block';
+                            confirmation.innerHTML = `
+                                <h3>預約成功！</h3>
+                                <p>姓名: ${name}</p>
+                                <p>電話: ${phone}</p>
+                                <p>日期: ${date}</p>
+                                <p>時間: ${time}</p>
+                                <p>分店: ${shop}</p>
+                                <p>人數: ${people}</p>
+                                <p>寵物數量: ${pets}</p>
+                                <p>座位: ${data.seat_name}</p>
+                                <p>餐點內容:</p>
+                                <ul>
+                                    ${this.selectedItemsDisplay.map(item => `<li>${item.name} x ${item.quantity} - $${item.totalPrice}</li>`).join('')}
+                                    ${this.comboQuantity > 0 ? `<li>套餐 x ${this.comboQuantity} - $${this.comboQuantity * this.comboExtraCost}</li>` : ''}
+                                    ${this.comboDrinkSelections.map((drinkId, index) => `<li>套餐 ${index + 1} 飲料: ${this.getComboDrinkName(drinkId)}</li>`).join('')}
+                                </ul>
+                                <p>總金額: $${this.totalAmount}</p>
+                            `;
+                            this.$refs.bookingForm.reset();
+                            document.getElementById('seatMap').innerHTML = '';
+                            this.form = { name: '', phone: '', date: '', time: '', people: 1, pets: 0, shop: '', seat_id: null };
+                            this.quantities = {};
+                            this.comboQuantity = 0;
+                            this.comboDrinkSelections = [];
+                            this.selectedCategory = '';
+                        } else {
+                            alert(data.error);
+                        }
+                    } catch (error) {
+                        console.error('提交失敗:', error);
+                        alert('提交訂位失敗，請稍後再試');
+                    }
+                },
+                async checkAvailability() {
+                    const { date, time, people, pets } = this.form;
+
+                    if (!date || !time || !people || pets === '') {
+                        alert('請填寫所有欄位');
+                        return;
+                    }
+
+                    const response = await fetch('backend.php?action=check', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ date, time, people, pets })
+                    });
+                    const data = await response.json();
+
+                    if (data.error) {
+                        alert(data.error);
+                        return;
+                    }
+
+                    this.renderSeatMap(data.seats);
+                },
+                renderSeatMap(seats) {
+                    const seatMap = document.getElementById('seatMap');
+                    seatMap.innerHTML = '';
+                    seats.forEach(seat => {
+                        const div = document.createElement('div');
+                        div.className = `seat ${seat.available ? 'available' : 'unavailable'}`;
+                        div.textContent = seat.name;
+                        if (seat.available) {
+                            div.onclick = () => this.selectSeat(seat.id, div);
+                        }
+                        seatMap.appendChild(div);
+                    });
+                },
+                selectSeat(seatId, element) {
+                    document.querySelectorAll('.seat').forEach(seat => seat.classList.remove('selected'));
+                    element.classList.add('selected');
+                    this.form.seat_id = seatId;
+                },
+                async fetchMenu() {
+                    try {
+                        const response = await fetch('get_menu.php');
+                        const data = await response.json();
+                        if (data.error) throw new Error(data.error);
+                        this.menu = data;
+                        this.menu.forEach(item => {
+                            this.quantities[item.id] = 0;
+                        });
+                    } catch (error) {
+                        console.error('載入菜單失敗:', error);
+                        alert('無法載入菜單，請稍後再試');
+                    }
+                },
+                sendMessage() {
+                    $.post('chat.php', { message: this.message }, (data) => {
+                        this.response = data.response;
+                    }, 'json');
+                },
+                // login() {
+                //     if (!this.username || !this.password) {
+                //         alert('請輸入使用者名稱和密碼！');
+                //         return;
+                //     }
+                //     fetch('member_control_api_v2 copy.php?action=login1', {
+                //         method: 'POST',
+                //         headers: { 'Content-Type': 'application/json' },
+                //         body: JSON.stringify({ username: this.username, password: this.password })
+                //     })
+                //         .then(res => res.json())
+                //         .then(data => {
+                //             console.log('登入回應:', data);
+                //             if (data.state) {
+                //                 localStorage.setItem('user_uid', data.data.uid01);
+                //                 this.isLoggedIn = true;
+                //                 this.userId = data.data.user_id;
+                //                 this.fetchPlayerInfo(data.data.uid01);
+                //                 this.username = '';
+                //                 this.password = '';
+                //             } else {
+                //                 alert(data.message);
+                //             }
+                //         })
+                //         .catch(err => console.error('登入錯誤:', err));
+                // },
+
+                // // 登出功能
+                // logout() {
+                //     localStorage.removeItem('user_uid');
+                //     this.isLoggedIn = false;
+                //     this.playerName = '';
+                //     this.userId = null;
+                //     if (this.map) {
+                //         this.map.remove();
+                //         this.map = null;
+                //     }
+                // },
+                // checkLoginStatus() {
+                //     const uid = localStorage.getItem('user_uid');
+                //     console.log('檢查登入狀態，UID:', uid);
+                //     if (uid) {
+                //         this.isLoggedIn = true;
+                //         this.fetchPlayerInfo(uid);
+                //     }
+                // },
+                // fetchPlayerInfo(uid) {
+                //     fetch('member_control_api_v2 copy.php?action=getplayerinfo', {
+                //         method: 'POST',
+                //         headers: { 'Content-Type': 'application/json' },
+                //         body: JSON.stringify({ uid01: uid })
+                //     })
+                //         .then(res => res.json())
+                //         .then(data => {
+                //             console.log('玩家資訊回應:', data);
+                //             if (data.state) {
+                //                 this.userId = data.data.user_id;
+                //                 this.playerName = data.data.player_name || '';
+                //                 if (this.playerName) {
+                //                     this.initMap();
+                //                     this.loadTerritories();
+                //                 }
+                //             }
+                //         })
+                //         .catch(err => console.error('獲取玩家資訊錯誤:', err));
+                // },
+
+                // setPlayerName() {
+                //     if (!this.newPlayerName) {
+                //         alert('請輸入玩家名稱！');
+                //         return;
+                //     }
+                //     fetch('member_control_api_v2 copy.php?action=setplayername', {
+                //         method: 'POST',
+                //         headers: { 'Content-Type': 'application/json' },
+                //         body: JSON.stringify({
+                //             uid01: localStorage.getItem('user_uid'),
+                //             player_name: this.newPlayerName
+                //         })
+                //     })
+                //         .then(res => res.json())
+                //         .then(data => {
+                //             console.log('設定玩家名稱回應:', data);
+                //             if (data.state) {
+                //                 this.playerName = this.newPlayerName;
+                //                 this.newPlayerName = '';
+                //                 this.initMap();
+                //                 this.loadTerritories();
+                //             } else {
+                //                 alert(data.message);
+                //             }
+                //         })
+                //         .catch(err => console.error('設定玩家名稱錯誤:', err));
+                // },
+
+                // initMap() {
+                //     if (!this.map) {
+                //         this.map = L.map('map').setView([this.petPosition.lat, this.petPosition.lng], 13);
+                //         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                //             attribution: '© OpenStreetMap contributors'
+                //         }).addTo(this.map);
+                //         this.petMarker = L.marker([this.petPosition.lat, this.petPosition.lng]).addTo(this.map)
+                //             .bindPopup(`${this.playerName}的寵物`);
+                //         this.map.on('click', this.movePet);
+                //     }
+                // },
+
+                // movePet(event) {
+                //     if (this.movesLeft > 0) {
+                //         const { lat, lng } = event.latlng;
+                //         this.petMarker.setLatLng([lat, lng]).openPopup();
+                //         this.petPosition = { lat, lng };
+                //         this.movesLeft--;
+                //         if (Math.random() < 0.3) {
+                //             this.triggerChallenge();
+                //         } else {
+                //             alert("你成功移動，但沒有遇到挑戰！");
+                //         }
+                //     } else {
+                //         alert("今日移動次數已用完！");
+                //     }
+                // },
+
+                // triggerChallenge() {
+                //     const challenges = [
+                //         { type: "battle", title: "擊敗野貓幫！", text: "快速點擊攻擊按鈕來擊敗野貓！" },
+                //         { type: "quiz", title: "贏得狗狗友誼！", text: "狗狗能不能吃巧克力？" }
+                //     ];
+                //     const challenge = challenges[Math.floor(Math.random() * challenges.length)];
+                //     this.challengeType = challenge.type;
+                //     this.challengeTitle = challenge.title;
+                //     this.challengeText = challenge.text;
+                //     document.getElementById("challengeModal").style.display = "block";
+                //     document.getElementById("overlay").style.display = "block";
+                // },
+
+                // attack() {
+                //     if (Math.random() < 0.7) {
+                //         alert("你成功擊敗野貓幫！");
+                //         this.captureTerritory();
+                //     } else {
+                //         alert("你輸了，下次再挑戰！");
+                //     }
+                //     this.closeChallenge();
+                // },
+
+                // answerQuiz(isCorrect) {
+                //     if (this.challengeText === "狗狗能不能吃巧克力？" && !isCorrect) {
+                //         alert("回答正確！你贏得了狗狗的友誼！");
+                //         this.captureTerritory();
+                //     } else {
+                //         alert("回答錯誤，狗狗跑走了...");
+                //     }
+                //     this.closeChallenge();
+                // },
+
+                // captureTerritory() {
+                //     this.ownedTerritories.push({ lat: this.petPosition.lat, lng: this.petPosition.lng });
+                //     L.circle([this.petPosition.lat, this.petPosition.lng], {
+                //         radius: 50,
+                //         color: "green"
+                //     }).addTo(this.map);
+
+                //     fetch("save_territory.php", {
+                //         method: "POST",
+                //         headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                //         body: new URLSearchParams({
+                //             user_id: this.userId,
+                //             pet_name: this.playerName,
+                //             lat: this.petPosition.lat,
+                //             lng: this.petPosition.lng
+                //         })
+                //     }).then(res => res.json()).then(data => {
+                //         if (data.status === "success") {
+                //             alert("領地已儲存！");
+                //         } else {
+                //             alert("儲存失敗！");
+                //         }
+                //     });
+                // },
+
+                // closeChallenge() {
+                //     document.getElementById("challengeModal").style.display = "none";
+                //     document.getElementById("overlay").style.display = "none";
+                // },
+
+                // loadTerritories() {
+                //     fetch("get_territories.php")
+                //         .then(res => res.json())
+                //         .then(data => {
+                //             data.forEach(territory => {
+                //                 let color = territory.user_id === this.userId ? "green" : "blue";
+                //                 L.circle([territory.lat, territory.lng], {
+                //                     radius: 500,
+                //                     color: color
+                //                 }).addTo(this.map).bindPopup(`領主：${territory.pet_name}`);
+                //             });
+                //         });
+                // }
+            },
+            watch: {
+                comboQuantity(newVal, oldVal) {
+                    if (newVal < oldVal) {
+                        this.comboDrinkSelections = this.comboDrinkSelections.slice(0, newVal);
+                    } else {
+                        while (this.comboDrinkSelections.length < newVal) {
+                            this.comboDrinkSelections.push(null);
+                        }
+                    }
+                }
+            },
+            mounted() {
+                this.fetchMenu();
+                // this.checkLoginStatus();
+            }
+        }).mount('#app');
+
+        new WOW().init();
+
+        var flag_username_reg = false;
+        var flag_password_reg = false;
+        var flag_re_password_reg = false;
+        var flag_phone_reg = false;
+        var flag_chk01_reg = false;
+        var flag_username_login = false;
+        var flag_password_login = false;
+
+        $(function () {
+            // if (getCookie("Uid01")) {
+            //     var JSONdata = { "uid01": getCookie("Uid01") };
+            //     $.ajax({
+            //         type: "POST",
+            //         url: "member_control_api_v2 copy.php?action=checkuid",
+            //         data: JSON.stringify(JSONdata),
+            //         contentType: "application/json",
+            //         dataType: "json",
+            //         success: function (data) {
+            //             showdata_checkuid(data);
+            //             displayMemberCenter(data.data);
+            //         },
+            //         error: function () {
+            //             Swal.fire({ icon: "error", title: "API介接錯誤", text: "無法驗證會員狀態" });
+            //             hideMemberCenter();
+            //         }
+            //     });
+            // } else {
+            //     $("#s02_login_btn").removeClass("d-none");
+            //     $("#s02_username_showtext").addClass("d-none");
+            //     $("#s02_logout_btn").addClass("d-none");
+            //     hideMemberCenter();
+            // }
+
+
+            // $("#s02_logout_btn").click(function () {
+            //     setCookie("Uid01", "", -1);
+            //     Swal.fire({
+            //         title: "請先登入會員!",
+            //         showDenyButton: false,
+            //         showCancelButton: false,
+            //         confirmButtonText: "確認",
+            //         denyButtonText: `Don't save`,
+            //         allowOutsideClick: false
+            //     }).then((result) => {
+            //         /* Read more about isConfirmed, isDenied below */
+            //         if (result.isConfirmed) {
+            //             location.href = "langlangdontcry-index.html";
+            //         }
+            //     });
+
+            //     return;
+            // });
+
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 300) {
+                    $("#myElement").removeClass("d-none");
+                } else {
+                    $("#myElement").addClass("d-none");
+                }
+            });
+
+            $(document).ready(function () {
+                let menuItems = [];
+                let categories = ['全部'];
+
+                function fetchMenu() {
+                    $.ajax({
+                        url: 'menu.php',
+                        method: 'GET',
+                        dataType: 'json',
+                        success: function (data) {
+                            menuItems = data;
+                            categories = ['全部', ...new Set(data.map(item => item.menuLayer))];
+                            renderCategories();
+                            renderMenu();
+                        },
+                        error: function (error) {
+                            console.error('載入菜單失敗:', error);
+                        }
+                    });
+                }
+
+                function renderCategories() {
+                    let categoryHtml = categories.map(category => `<button class="category-btn fw-900" data-category="${category}">${category}</button>`).join('');
+                    $('#category-container').html(categoryHtml);
+                }
+
+                function renderMenu(category = '全部') {
+                    let filteredMenu = category === '全部' ? menuItems : menuItems.filter(item => item.menuLayer === category);
+                    let menuHtml = `
+                        <div class="menu-slider">
+                            <div class="slider-wrapper">
+                                ${filteredMenu.map(item => `
+                                    <div class="slide">
+                                        <div class="row">
+                                            <div class="col-7"><img src="images/menu/${item.image_path}" alt=""></div>
+                                            <div class="col-3 fw-900 m-auto">
+                                                <h3>${item.Pname}</h3>
+                                                <p>${item.Pstatus}</p>
+                                                <p>${item.Remark}</p>
+                                                <span>$${item.Price}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                            <button class="prev-slide">❮</button>
+                            <button class="next-slide">❯</button>
+                        </div>
+                    `;
+                    $('#menu-container').html(menuHtml);
+                    initSlider();
+                }
+
+                function initSlider() {
+                    let currentIndex = 0;
+                    const slides = $('.slide');
+                    const totalSlides = slides.length;
+
+                    function showSlide(index) {
+                        slides.hide();
+                        slides.eq(index).fadeIn();
+                    }
+
+                    $('.prev-slide').click(function () {
+                        currentIndex = (currentIndex > 0) ? currentIndex - 1 : totalSlides - 1;
+                        showSlide(currentIndex);
+                    });
+
+                    $('.next-slide').click(function () {
+                        currentIndex = (currentIndex < totalSlides - 1) ? currentIndex + 1 : 0;
+                        showSlide(currentIndex);
+                    });
+
+                    showSlide(currentIndex);
+                }
+
+                $(document).on('click', '.category-btn', function () {
+                    let selectedCategory = $(this).data('category');
+                    renderMenu(selectedCategory);
+                });
+
+                fetchMenu();
+            });
+        });
+
+
+        function showdata_checkuid(data) {
+            if (data.state) {
+                $("#s02_username_showtext").removeClass("d-none");
+                $("#s02_username_text").text(data.data.Username);
+                $("#s02_member_level").text(getLevelText(data.data.membership_level));
+                $("#s02_reg_btn").addClass("d-none");
+                $("#s02_login_btn").addClass("d-none");
+                $("#s02_logout_btn").removeClass("d-none");
+                $("#s02").addClass("d-none");
+
+                $("#s02_menu_btn").removeClass("d-none");
+                $("#s02_orderseat_btn").removeClass("d-none");
+                $("#s04_orderseat_btn").removeClass("d-none");
+                $("#s01_menu_btn").removeClass("d-none");
+                $("#s01_orderseat_btn").removeClass("d-none");
+                $("#s01_map_btn").removeClass("d-none");
+                $("#s03").removeClass("d-none");
+
+                const level = String(data.data.membership_level).trim();
+                if (level === "普通會員") {
+                } else if (level === "愛心會員") {
+                } else if (level === "YT會員") {
+                    $("#s04").removeClass("d-none");
+                    $("#s03_orderseat_btn").removeClass("d-none");
+                    $("#s02_youtube_btn").removeClass("d-none");
+                } else if (level === "管理員") {
+                    $("#s03_menu_panel_btn").removeClass("d-none");
+                    $("#s03_menu_panel_btn_navbar").removeClass("d-none");
+                    $("#s02_youtube_btn").removeClass("d-none");
+                    $("#s02_orderseat_btn_navbar").removeClass("d-none");
+                    $("#s02_control_panel_btn").removeClass("d-none");
+                    $("#s02_control_panel_btn_navbar").removeClass("d-none");
+                    $("#s04_control_panel_btn").removeClass("d-none");
+                    $("#s03_orderseat_btn").removeClass("d-none");
+                    $("#s04").removeClass("d-none");
+                } else if (level === "老闆") {
+                    $("#s02_youtube_btn").removeClass("d-none");
+                    $("#s03_menu_panel_btn").removeClass("d-none");
+                    $("#s03_menu_panel_btn_navbar").removeClass("d-none");
+                    $("#s02_orderseat_btn_navbar").removeClass("d-none");
+                    $("#s02_control_panel_btn").removeClass("d-none");
+                    $("#s02_control_panel_btn_navbar").removeClass("d-none");
+                    $("#s04_control_panel_btn").removeClass("d-none");
+                    $("#s03_orderseat_btn").removeClass("d-none");
+                    $("#s04").removeClass("d-none");
+                }
+                setCookie("Uid01", data.data.Uid01, 7);
+            } else {
+                $("#s02_login_btn").removeClass("d-none");
+                $("#s02_username_showtext").addClass("d-none");
+                $("#s02_logout_btn").addClass("d-none");
+            }
+        }
+
+        // function getLevelText(level) {
+        //     const parsedLevel = (level !== undefined && level !== null) ? String(level).trim() : "0";
+        //     switch (parsedLevel) {
+        //         case "普通會員": return "普通會員";
+        //         case "愛心會員": return "愛心會員";
+        //         case "YT會員": return "YT會員";
+        //         case "管理員": return "管理員";
+        //         case "老闆": return "老闆";
+        //         default: return "未知 (" + parsedLevel + ")";
+        //     }
+        // }
+
+        function checkLoginStatus() {
+            const uid = getCookie("Uid01");
+            console.log('檢查登入狀態，UID:', uid);
+            if (uid) {
+                $.ajax({
+                    type: "POST",
+                    url: "member_control_api_v2 copy.php?action=checkuid",
+                    data: JSON.stringify({ uid01: uid }),
+                    contentType: "application/json",
+                    dataType: "json",
+                    success: function(data) {
+                        if (data.state) {
+                            $("#s02_username_showtext").removeClass("d-none");
+                            $("#s02_username_text").text(data.data.Username);
+                            $("#s02_logout_btn").removeClass("d-none");
+                            $("#s02").addClass("d-none");
+
+                            $("#s02_menu_btn").removeClass("d-none");
+                            $("#s02_orderseat_btn").removeClass("d-none");
+                            $("#s04_orderseat_btn").removeClass("d-none");
+                            $("#s01_menu_btn").removeClass("d-none");
+                            $("#s01_orderseat_btn").removeClass("d-none");
+                            $("#s01_map_btn").removeClass("d-none");
+
+                            const level = String(data.data.membership_level).trim();
+                            if (level === "YT會員") {
+                                $("#s03_orderseat_btn").removeClass("d-none");
+                                $("#s02_youtube_btn").removeClass("d-none");
+                            } else if (level === "管理員" || level === "老闆") {
+                                $("#s03_menu_panel_btn").removeClass("d-none");
+                                $("#s03_menu_panel_btn_navbar").removeClass("d-none");
+                                $("#s02_orderseat_btn_navbar").removeClass("d-none");
+                                $("#s02_control_panel_btn").removeClass("d-none");
+                                $("#s02_control_panel_btn_navbar").removeClass("d-none");
+                                $("#s04_control_panel_btn").removeClass("d-none");
+                                $("#s03_orderseat_btn").removeClass("d-none");
+                                $("#s02_youtube_btn").removeClass("d-none");
+                            }
+
+                            // 遊戲相關邏輯
+                            $("#notLoggedIn").hide();
+                            $("#gameContent").show();
+                            userId = data.data.user_id;
+                            fetchPlayerInfo(uid);
+                        } else {
+                            logout();
+                        }
+                    },
+                    error: function() {
+                        Swal.fire({ icon: "error", title: "API介接錯誤", text: "無法驗證會員狀態" });
+                        logout();
+                    }
+                });
+            } else {
+                $("#notLoggedIn").show();
+                $("#gameContent").hide();
+            }
+        }
+
+        // 獲取玩家資訊
+        function fetchPlayerInfo(uid) {
+            $.ajax({
+                type: "POST",
+                url: "member_control_api_v2 copy.php?action=getplayerinfo",
+                data: JSON.stringify({ uid01: uid }),
+                contentType: "application/json",
+                dataType: "json",
+                success: function(data) {
+                    console.log('玩家資訊回應:', data);
+                    if (data.state) {
+                        userId = data.data.user_id;
+                        const playerName = data.data.player_name || '';
+                        $("#playerName").text(playerName);
+                        if (playerName) {
+                            initMap();
+                            loadTerritories();
+                        } else {
+                            $("#setPlayerName").show();
+                        }
+                    }
+                },
+                error: function(err) {
+                    console.error('獲取玩家資訊錯誤:', err);
+                }
+            });
+        }
+
+        // 設置玩家名稱
+        function setPlayerName() {
+            const newPlayerName = $("#newPlayerName").val();
+            if (!newPlayerName) {
+                alert('請輸入玩家名稱！');
+                return;
+            }
+            const uid = getCookie("Uid01");
+            $.ajax({
+                type: "POST",
+                url: "member_control_api_v2 copy.php?action=setplayername",
+                data: JSON.stringify({ uid01: uid, player_name: newPlayerName }),
+                contentType: "application/json",
+                dataType: "json",
+                success: function(data) {
+                    console.log('設定玩家名稱回應:', data);
+                    if (data.state) {
+                        $("#playerName").text(newPlayerName);
+                        $("#setPlayerName").hide();
+                        initMap();
+                        loadTerritories();
+                    } else {
+                        alert(data.message);
+                    }
+                },
+                error: function(err) {
+                    console.error('設定玩家名稱錯誤:', err);
+                }
+            });
+        }
+
+        // 登出功能
+        function logout() {
+            setCookie("Uid01", "", -1);
+            Swal.fire({
+                    title: "請先登入會員!",
+                    showDenyButton: false,
+                    showCancelButton: false,
+                    confirmButtonText: "確認",
+                    denyButtonText: `Don't save`,
+                    allowOutsideClick: false
+                }).then((result) => {
+                    /* Read more about isConfirmed, isDenied below */
+                    if (result.isConfirmed) {
+                        location.href = "langlangdontcry-index.html";
+                    }
+                });
+
+                return;
+            // $("#s02_username_showtext").addClass("d-none");
+            // $("#s02_logout_btn").addClass("d-none");
+            // $("#s02_menu_btn").addClass("d-none");
+            // $("#s02_orderseat_btn").addClass("d-none");
+            // $("#s04_orderseat_btn").addClass("d-none");
+            // $("#s01_menu_btn").addClass("d-none");
+            // $("#s01_orderseat_btn").addClass("d-none");
+            // $("#s01_map_btn").addClass("d-none");
+            // $("#s03_menu_panel_btn").addClass("d-none");
+            // $("#s03_menu_panel_btn_navbar").addClass("d-none");
+            // $("#s02_orderseat_btn_navbar").addClass("d-none");
+            // $("#s02_control_panel_btn").addClass("d-none");
+            // $("#s02_control_panel_btn_navbar").addClass("d-none");
+            // $("#s04_control_panel_btn").addClass("d-none");
+            // $("#s03_orderseat_btn").addClass("d-none");
+            // $("#s02_youtube_btn").addClass("d-none");
+            // $("#gameContent").hide();
+            // $("#notLoggedIn").show();
+            // if (map) {
+            //     map.remove();
+            //     map = null;
+            // }
+            // userId = null;
+            // movesLeft = 5;
+            // $("#movesLeft").text(movesLeft);
+        }
+
+        // 初始化地圖
+        function initMap() {
+            if (!map) {
+                map = L.map('map').setView([petPosition.lat, petPosition.lng], 13);
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '© OpenStreetMap contributors'
+                }).addTo(map);
+                petMarker = L.marker([petPosition.lat, petPosition.lng]).addTo(map)
+                    .bindPopup(`${$("#playerName").text()}的寵物`);
+                map.on('click', movePet);
+            }
+        }
+
+        // 移動寵物
+        function movePet(event) {
+            if (movesLeft > 0) {
+                const { lat, lng } = event.latlng;
+                petMarker.setLatLng([lat, lng]).openPopup();
+                petPosition = { lat, lng };
+                movesLeft--;
+                $("#movesLeft").text(movesLeft);
+                if (Math.random() < 0.3) {
+                    triggerChallenge();
+                } else {
+                    alert("你成功移動，但沒有遇到挑戰！");
+                }
+            } else {
+                alert("今日移動次數已用完！");
+            }
+        }
+
+        // 觸發挑戰
+        function triggerChallenge() {
+            const challenges = [
+                { type: "battle", title: "擊敗野貓幫！", text: "快速點擊攻擊按鈕來擊敗野貓！" },
+                { type: "quiz", title: "贏得狗狗友誼！", text: "狗狗能不能吃巧克力？" }
+            ];
+            const challenge = challenges[Math.floor(Math.random() * challenges.length)];
+            $("#challengeTitle").text(challenge.title);
+            $("#challengeText").text(challenge.text);
+            if (challenge.type === "battle") {
+                $("#battleBtn").show();
+                $("#quizButtons").hide();
+            } else {
+                $("#battleBtn").hide();
+                $("#quizButtons").show();
+            }
+            $("#challengeModal").show();
+            $("#overlay").show();
+        }
+
+        // 攻擊野貓
+        $("#battleBtn").click(function() {
+            if (Math.random() < 0.7) {
+                alert("你成功擊敗野貓幫！");
+                captureTerritory();
+            } else {
+                alert("你輸了，下次再挑戰！");
+            }
+            closeChallenge();
+        });
+
+        // 回答問答
+        $("#quizTrueBtn").click(function() {
+            answerQuiz(true);
+        });
+        $("#quizFalseBtn").click(function() {
+            answerQuiz(false);
+        });
+
+        function answerQuiz(isCorrect) {
+            if ($("#challengeText").text() === "狗狗能不能吃巧克力？" && !isCorrect) {
+                alert("回答正確！你贏得了狗狗的友誼！");
+                captureTerritory();
+            } else {
+                alert("回答錯誤，狗狗跑走了...");
+            }
+            closeChallenge();
+        }
+
+        // 捕獲領地
+        function captureTerritory() {
+            ownedTerritories.push({ lat: petPosition.lat, lng: petPosition.lng });
+            L.circle([petPosition.lat, petPosition.lng], {
+                radius: 50,
+                color: "green"
+            }).addTo(map);
+
+            $.ajax({
+                type: "POST",
+                url: "save_territory.php",
+                data: {
+                    user_id: userId,
+                    pet_name: $("#playerName").text(),
+                    lat: petPosition.lat,
+                    lng: petPosition.lng
+                },
+                success: function(data) {
+                    if (data.status === "success") {
+                        alert("儲存失敗");
+                    } else {
+                        alert("領地已儲存！");
+                    }
+                }
+            });
+        }
+
+        // 關閉挑戰
+        function closeChallenge() {
+            $("#challengeModal").hide();
+            $("#overlay").hide();
+        }
+
+        // 載入領地
+        function loadTerritories() {
+            $.getJSON("get_territories.php", function(data) {
+                data.forEach(territory => {
+                    let color = territory.user_id === userId ? "green" : "blue";
+                    L.circle([territory.lat, territory.lng], {
+                        radius: 500,
+                        color: color
+                    }).addTo(map).bindPopup(`領主：${territory.pet_name}`);
+                });
+            });
+        }
+
+        function setCookie(cname, cvalue, exdays) {
+            const d = new Date();
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+            let expires = "expires=" + d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+
+        function getCookie(cname) {
+            let name = cname + "=";
+            let ca = document.cookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+
+        // 
+        
+           // 初始化
+           $(document).ready(function() {
+            checkLoginStatus();
+            $("#setPlayerNameBtn").click(setPlayerName);
+            $("#s02_logout_btn").click(logout);
+            new WOW().init();
+        });
+    </script>
+</body>
+
+</html>
